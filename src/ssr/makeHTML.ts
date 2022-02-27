@@ -1,4 +1,5 @@
 /* eslint-disable */
+
 const getEnv = (req:any) => {
   let env = "PROD";
   if ( req.hostname === "localhost" ) {
@@ -9,7 +10,7 @@ const getEnv = (req:any) => {
 
 export default function makeHTML(req:any) { 
   const env = getEnv(req);
-  let assetsURL, siteURL, rootConfigURL, appshellURL;
+  let assetsURL, siteURL, rootConfigURL, appshellURL, serviceWorker;
   const siteTitle = "listingslab";
   const themeColor = "#006c72";
   switch( env ) {
@@ -18,12 +19,26 @@ export default function makeHTML(req:any) {
       assetsURL = "http://localhost:3000/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       appshellURL = "http://localhost:8080/listingslab-appshell.js";
+      serviceWorker = "";
       break;
     default:
       siteURL = "https://listingslab.com";
       assetsURL = "https://listingslab.com/";
       rootConfigURL = "https://listingslab.com/root-config/listingslab-root-config.js";
       appshellURL = "https://listingslab.com/appshell/listingslab-appshell.js";
+      serviceWorker = `<script>
+        if ('serviceWorker' in navigator) {
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js?v2', {
+                scope: '.'
+            }).then(function(registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+          }
+        }
+      </script>`;
   } 
   const siteIcon = `${assetsURL}png/logo192.png`;
   const content = {
@@ -58,7 +73,6 @@ export default function makeHTML(req:any) {
           }
         }
       </script>
-
       <script type="systemjs-importmap">
         {
           "imports": {
@@ -85,9 +99,9 @@ export default function makeHTML(req:any) {
       <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>  
 
       <script>
-var ssr = ${JSON.stringify(content, null, 2)};
+        var ssr = ${JSON.stringify(content, null, 2)};
       </script>
-
+      ${serviceWorker}
     </head>
     <body>
       <noscript>You need a LOT of JavaScript to use  <a
