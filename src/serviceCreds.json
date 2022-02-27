@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "listingslab-pingpong",
+  "private_key_id": "2dc86d4ceb91206d4a68b80283d0c325440c62d5",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCctsg8xfChpv4Q\nLqhIw1+E/fSO++dGUV9yFXqPi9UR8+1katcCx999W4wGH8+OEsRj7uaYchbl0s/l\nBWN3YytfE9BEzECbKpzYDEZm7iRt9WwCakbJ+KI/KFrMFZ3jG7bI6fUE7+Uz49he\nqB7MjMJwZZxvsKx5T4cRI0eI512gnR+u8MYlnVudi5tmN3r68vASXHnWFtBky2fT\nu+Osdp/Q4IvoltUd87z+8CgsORU3oXjR7rXAAgnk2FlivxTr5tWJscoeeW5957/z\nT2kQ1aet3QW4FePWIE8R6zQrmBzAoeTYv6+TlkThGbmebcZrtlQrKcu7wDDtfb4E\nV8tlStwHAgMBAAECggEABjEssUYK74A3KrGFQbbCh/E24A1xAnTFpi7WFGTsitSO\nDTkxfLEkEgJzgmxwWYdBTkeKwfxEDlmpkD2JxBZdiNiyEn3Vkav53YmCoJ+JPfUE\nCwZi/Kj/1CoGiGjUP7yBGOgxn7vQ3R+EFZ1j9iYbqrBBIaKj9fkf95viwDSQHP/4\ng+q3JhAPyu6U8ZT2ooNawsl40i8ZEm00nyUNRltc6STNNOFS/2qM3sS7gHviWBZD\n/JLcWM9tBNnenNMq4pM2AFthtEgS9lMdwOjIk0VjjIvk8UM1pXcmOyr9/gub7A+E\n81sAj42PkCrK6iGorKX4DMPK7afVHuYObuY1befP6QKBgQDIWnelrPqeLB6H8oir\nVu04gWuByRoMQEC2+j1i09I0uqSZ/syHxj9pUA7gYheKjjQgq1VYyeyif2kHMc5W\nBwi6DCyudvFdwHaQY9Eea8FTlG/cmdzGAt8rLGvg3tCwdMTN2mYYqz0K/kQv2d08\nEPlcH6jtljzvfsJBLXTqJbixCQKBgQDIPXcX/bsfnMn3zdpjJLDRZ37fd+nPHSYx\nrhO92jXdkSWEtBsVXRZq+5X4oVASmSdX+Az9GUzuXP5HACyicpM2ePviGe9zHdLa\nPbtW8pb9pubb/bt5NGfGfbiMyKQ7V+4xDkVuH0Dxvp2sebhAku0k2u3LEk7VAkO8\nBA01kLY4jwKBgQCIbrKTK1vuYfTYdpwCsUsQ83CWDK+kMAzhjT5IEh5Osdps00nM\nG4AK4u1+ds25GGT+6i1QLRDrBwAqWgw8IMYcizXSCEUMpocWhCJfKNmZZLdX7Z6d\naE84QyOjGZfa0WlDFLn5ioIi/krImv9Aa/6icRzDzU7pd9QoNiArYkyGoQKBgFTT\njQcRytqafgjHINPNMEaVdG7QirDdpVd4ag6MSTNikKVF8w86zwtlJuQb2iL21G70\nuvPhavCzXljPnxj2Npzl5bajzAdVRASGED3GKOatdLEPLQMsiyXQDoU9Xi1xk4se\ng5UiEk4WtQ7ixYY9d86cHA5h5BliizUz9jCR7E/LAoGAG9/usqHzhpnFgEBscJ+n\nmFeG/N9IUJAooZhIMBxIZBeTS1US+GRzzEhWGquxubIGeCJ+EY3+IENCJc61JoE7\nOuD9JN/YGPSXxTApFLddvE9f3H6IhOl4SKCTgRGWJaMTKgCNG1UVmoSt6BmztOff\nPt1sL3sqhSaaE4U2RVL8mC0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-kbr44@listingslab-pingpong.iam.gserviceaccount.com",
+  "client_id": "104304669971234907024",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-kbr44%40listingslab-pingpong.iam.gserviceaccount.com"
+}
