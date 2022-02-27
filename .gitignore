@@ -1,4 +1,4 @@
-.DS_Store
+
 ui-debug.log
 
 
@@ -9,3 +9,5 @@ lib/**/*.js.map
 
 # Node.js dependency directory
 node_modules/
+
+.DS_Store
