@@ -11,3 +11,5 @@ lib/**/*.js.map
 node_modules/
 
 .DS_Store
+
+firebase-debug.log
