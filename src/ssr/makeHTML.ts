@@ -10,7 +10,7 @@ const getEnv = (req:any) => {
 
 export default function makeHTML(req:any) { 
   const env = getEnv(req);
-  let assetsURL, siteURL, rootConfigURL, appshellURL, serviceWorker;
+  let assetsURL, siteURL, rootConfigURL, appshellURL;
   const siteTitle = "listingslab";
   const themeColor = "#006c72";
   switch( env ) {
@@ -19,26 +19,12 @@ export default function makeHTML(req:any) {
       assetsURL = "http://localhost:3000/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       appshellURL = "http://localhost:8080/listingslab-appshell.js";
-      serviceWorker = "";
       break;
     default:
       siteURL = "https://listingslab.com";
       assetsURL = "https://listingslab.com/";
       rootConfigURL = "https://listingslab.com/root-config/listingslab-root-config.js";
       appshellURL = "https://listingslab.com/appshell/listingslab-appshell.js";
-      serviceWorker = `<script>
-        if ('serviceWorker' in navigator) {
-          if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js?v2', {
-                scope: '.'
-            }).then(function(registration) {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-                console.log('ServiceWorker registration failed: ', err);
-            });
-          }
-        }
-      </script>`;
   } 
   const siteIcon = `${assetsURL}png/logo192.png`;
   const content = {
@@ -89,7 +75,6 @@ export default function makeHTML(req:any) {
       <link rel="icon" href="${assetsURL}favicon.ico" />
       <link rel="apple-touch-icon" href="${assetsURL}png/logo512.png" />
       <link type="text/css" href="${assetsURL}css/listingslab.css" rel="stylesheet" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
 
       <title>${title} ${siteTitle}</title>
 
@@ -101,7 +86,7 @@ export default function makeHTML(req:any) {
       <script>
         var ssr = ${JSON.stringify(content, null, 2)};
       </script>
-      ${serviceWorker}
+      
     </head>
     <body>
       <noscript>You need a LOT of JavaScript to use  <a
