@@ -14,27 +14,30 @@ export default function makeHTML(req:any) {
   const siteTitle = "listingslab";
   const themeColor = "#006c72";
   switch( env ) {
+
     case "LOCAL":
       siteURL = "http://localhost:5001/listingslab-pingpong/us-central1/SSR";
       assetsURL = "http://localhost:3000/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       appshellURL = "http://localhost:8080/listingslab-appshell.js";
       break;
+
     default:
       siteURL = "https://listingslab.com";
       assetsURL = "https://listingslab.com/";
-      rootConfigURL = "https://listingslab.com/root-config/listingslab-root-config.js";
+      rootConfigURL = "https://listingslab.com/main/listingslab-root-config.js";
       appshellURL = "https://listingslab.com/appshell/listingslab-appshell.js";
   } 
   const siteIcon = `${assetsURL}png/logo192.png`;
+  
   const content = {
-    title: "All your base are belong to",
-    excerpt: "All your base are belong to us is a popular Internet meme based on a badly translated phrase from the opening cutscene of the video game Zero Wing",
-    body: "<p>Don't believe?  <a href='https://en.wikipedia.org/wiki/All_your_base_are_belong_to_us' target='_blank'>check wikipedia</a>. By the early 2000s, a GIF animation depicting the opening text was widespread on the Something Awful message forums and other internet forums.[3] The phrase found popular reference outside internet forums through the 2000s and 2010s, including use by Newgrounds in 2001.</p>",
+    title: "title",
+    excerpt: "excerpt",
+    body: "body",
     ogImage: `${assetsURL}png/opengraph.png`,
     assetsURL, siteURL, rootConfigURL, appshellURL, themeColor, siteTitle, siteIcon
   }; 
-  const {title, excerpt, body, ogImage } = content;
+  const {title, excerpt, ogImage } = content;
   
   const html = `<!DOCTYPE html>
   <html lang="en">
@@ -95,47 +98,11 @@ export default function makeHTML(req:any) {
         title="PWAs are mobile apps that took all the right vitamins">
         Progressive Web Apps
       </a>(PWA)</noscript>
-      <div id="ssr" class="wrapper">
-        <header>          
-          <nav>
-            <a href="${siteURL}" target="_self" title="${title}">
-              <img class="siteIcon" src="${siteIcon}" alt="${siteTitle}" />
-            </a>
-            <ul>
-              <li><a href="https://listingslab.com/work/" target="_self">work</a></li>
-              <li><a href="https://listingslab.com/life/" target="_self">life</a></li>
-              <li><a href="https://listingslab.com/balance/" target="_self">balance</a></li>
-            </ul>
-          </nav>
-          <h1>${title} ${siteTitle}</h1>
-        </header>
-        <section>
-          <article>
-            <img class="image" src="${assetsURL}png/Aybabtu.png" align="right"/>
-            <h2>${excerpt}</h2>
-            ${body}
-          </article>
-        </section>
-        <footer>
-          <small>
-            <a href="https://us-central1-listingslab-pingpong.cloudfunctions.net/API" target="_blank">
-                API
-            </a>
-            &nbsp;|&nbsp;
-            <a href="https://github.com/listingslab-software/hof" target="_blank">
-                Open Source
-            </a>
-            &nbsp;|&nbsp;
-            Unlicensed software&nbsp;
-            <a href="https://github.com/orgs/listingslab-software" target="_blank">
-                by listingslab
-            </a>
-            </small>
-        </footer>
-      </div>
+      
+      <h1>Do the thing</h1>
 
       <script>
-        System.import('@listingslab/root-config');
+        // System.import('@listingslab/root-config');
       </script>
 
     </body>
