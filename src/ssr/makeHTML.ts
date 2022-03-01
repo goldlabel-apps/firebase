@@ -31,8 +31,8 @@ export default function makeHTML(req:any) {
   const siteIcon = `${assetsURL}png/logo192.png`;
   
   const content = {
-    title: "title",
-    excerpt: "excerpt",
+    title: "Listingslab Software",
+    excerpt: "Software",
     body: "body",
     ogImage: `${assetsURL}png/opengraph.png`,
     assetsURL, siteURL, rootConfigURL, appshellURL, themeColor, siteTitle, siteIcon
@@ -79,7 +79,7 @@ export default function makeHTML(req:any) {
       <link rel="apple-touch-icon" href="${assetsURL}png/logo512.png" />
       <link type="text/css" href="${assetsURL}css/listingslab.css" rel="stylesheet" />
 
-      <title>${title} ${siteTitle}</title>
+      <title>${title}</title>
 
       <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
@@ -99,10 +99,14 @@ export default function makeHTML(req:any) {
         Progressive Web Apps
       </a>(PWA)</noscript>
       
-      <h1>Do the thing</h1>
-
+      <div id="ssr">
+        <div class="landing-element">
+          <img src="https://listingslab.com/png/logo192Dark.png" />
+        </div>
+      </div>
+      
       <script>
-        // System.import('@listingslab/root-config');
+        System.import('@listingslab/root-config');
       </script>
 
     </body>
