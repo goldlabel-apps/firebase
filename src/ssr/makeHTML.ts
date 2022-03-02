@@ -101,7 +101,12 @@ export default function makeHTML(req:any) {
       
       <div id="ssr">
         <div class="landing-element">
-          <img src="https://listingslab.com/png/logo192Dark.png" />
+          <img
+            alt="${title}" 
+            src="https://listingslab.com/png/logo192Dark.png" />
+        </div>
+        <div class="um">
+          <h1>${title}</h1>
         </div>
       </div>
       
