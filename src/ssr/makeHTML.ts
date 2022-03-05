@@ -1,4 +1,5 @@
 /* eslint-disable */
+import pJSON from "../../package.json";
 
 const getEnv = (req:any) => {
   let env = "PROD";
@@ -10,6 +11,7 @@ const getEnv = (req:any) => {
 
 export default function makeHTML(req:any) { 
   const env = getEnv(req);
+  const { version } = pJSON;
   let assetsURL, siteURL, rootConfigURL, appshellURL;
   const siteTitle = "listingslab";
   const themeColor = "#126970";
@@ -89,7 +91,7 @@ export default function makeHTML(req:any) {
       <link rel="apple-touch-icon" href="${assetsURL}png/logo512.png" />
       <link type="text/css" href="${assetsURL}css/listingslab.css" rel="stylesheet" />
 
-      <title>${title}</title>
+      <title>${title} ${version}</title>
 
       <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
