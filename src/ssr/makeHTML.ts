@@ -12,7 +12,8 @@ export default function makeHTML(req:any) {
   const env = getEnv(req);
   let assetsURL, siteURL, rootConfigURL, appshellURL;
   const siteTitle = "listingslab";
-  const themeColor = "#006c72";
+  const themeColor = "#126970";
+
   switch( env ) {
 
     case "LOCAL":
@@ -32,7 +33,7 @@ export default function makeHTML(req:any) {
   
   const content = {
     title: "Listingslab Software",
-    excerpt: "Software",
+    excerpt: "Server Side Rendering with Serverless isomorphic Node functions",
     body: "body",
     ogImage: `${assetsURL}png/opengraph.png`,
     assetsURL, siteURL, rootConfigURL, appshellURL, themeColor, siteTitle, siteIcon
@@ -73,7 +74,17 @@ export default function makeHTML(req:any) {
           }
         }
       </script>
-
+      <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function(err) {
+              console.log('ServiceWorker registration failed: ', err);
+            });
+          });
+        }
+      </script>
       <link rel="manifest" href="${assetsURL}manifest.json">
       <link rel="icon" href="${assetsURL}favicon.ico" />
       <link rel="apple-touch-icon" href="${assetsURL}png/logo512.png" />
