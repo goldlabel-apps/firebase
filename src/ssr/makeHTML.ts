@@ -34,7 +34,6 @@ export default function makeHTML(req:any) {
   const content = {
     title: "Listingslab Software",
     excerpt: "Server Side Rendering with Serverless isomorphic Node functions",
-    body: "body",
     ogImage: `${assetsURL}png/opengraph.png`,
     assetsURL, siteURL, rootConfigURL, appshellURL, themeColor, siteTitle, siteIcon
   }; 
