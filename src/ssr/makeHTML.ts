@@ -47,15 +47,34 @@ export default function makeHTML(req:any) {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="${themeColor}" />
+      <meta itemprop="name" content="${siteTitle}" />
+      <meta name="${siteTitle}" />
       <meta name="description" content="${excerpt}" />
+      <meta name="keywords" content="pingpong, react, PWA" />
+    
+      <meta name="geo.region" content="Mediterranean Islands" />
+      <meta name="geo.placename" content="Island Countries" />
+      <meta name="geo.position" content="35.88999533; 14.43971116" />
+      <meta name="ICBM" content="35.88999533, 14.43971116" />
+
       <meta property="og:type" content="website" />
       <meta property="og:url" content="${siteURL}" />
       <meta property="og:title" content="${title} | ${siteTitle}" />
       <meta property="og:description" content="${excerpt}" />
       <meta property="og:image" content="${ogImage}" />
+
+      <meta name="twitter:site" content="https://listingslab.com" />
+      <meta name="twitter:title" content="${title}" />
+      <meta name="twitter:description" content="${excerpt}"/>
+      <meta name="twitter:creator" content="listigslab" />
+      <meta name="twitter:image" content="${ogImage}" />
+
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="HandheldFriendly" content="true" />
       <meta name="msapplication-TileColor" content="${themeColor}">
       <meta name="msapplication-TileImage" content="${assetsURL}png/ms-icon-144x144.png">
+
       <meta name="importmap-type" content="systemjs-importmap" />
       <script type="systemjs-importmap">
         {
