@@ -26,8 +26,10 @@ const getServiceWorker = (req:any) => {
 export default function makeHTML(req:any) { 
   const env = getEnv(req);
   const { version } = pJSON;
-  let assetsURL, siteURL, rootConfigURL, appshellURL, menuURL, personaURL;
-  const siteTitle = "listingslab";
+  let assetsURL, siteURL, rootConfigURL, appshellURL, 
+      menuURL, personaURL, authURL, sharedURL;
+  
+  const siteTitle = "Listingslab Software";
   const themeColor = "#126970";
 
   switch( env ) {
@@ -39,6 +41,8 @@ export default function makeHTML(req:any) {
       appshellURL = "http://localhost:1968/listingslab-appshell.js";
       menuURL = "http://localhost:1975/listingslab-menu.js";
       personaURL = "http://localhost:1914/listingslab-persona.js";
+      authURL = "http://localhost:1918/listingslab-auth.js";
+      sharedURL = "http://localhost:1945/listingslab-shared.js";
       break;
 
     default:
@@ -48,17 +52,19 @@ export default function makeHTML(req:any) {
       appshellURL = "https://listingslab.com/appshell/listingslab-appshell.js";
       menuURL = "https://listingslab.com/menu/listingslab-menu.js";
       personaURL = "https://listingslab.com/persona/listingslab-persona.js";
+      authURL = "https://listingslab.com/auth/listingslab-auth.js";
+      sharedURL = "https://listingslab.com/shared/listingslab-shared.js";
   } 
 
   const siteIcon = `${assetsURL}png/logo192.png`;
   
   const content = {
     title: "Listingslab Software",
-    excerpt: "Server Side Rendering with Serverless isomorphic Node functions",
+    excerpt: "Server Side Rendering with Serverless Isomorphic Node and stuff like that",
     ogImage: `${assetsURL}png/opengraph.png`,
     assetsURL, siteURL, rootConfigURL, 
     appshellURL, themeColor, siteTitle, siteIcon,
-    menuURL,
+    menuURL, personaURL, authURL, sharedURL,
   }; 
   const {title, excerpt, ogImage } = content;
   
@@ -70,9 +76,11 @@ export default function makeHTML(req:any) {
       <meta name="theme-color" content="${themeColor}" />
       <meta itemprop="name" content="${siteTitle}" />
       <meta name="${siteTitle}" />
+
       <title>${title} ${version}</title>
+      
       <meta name="description" content="${excerpt}" />
-      <meta name="keywords" content="pingpong, react, PWA" />
+      <meta name="keywords" content="ssr, node, react, PWA, " />
     
       <meta name="geo.region" content="Mediterranean Islands" />
       <meta name="geo.placename" content="Island Countries" />
@@ -108,9 +116,14 @@ export default function makeHTML(req:any) {
       <script type="systemjs-importmap">
         {
           "imports": {
+
             "@listingslab/root-config": "${rootConfigURL}",
             "@listingslab/appshell": "${appshellURL}",
             "@listingslab/menu": "${menuURL}",
+            "@listingslab/persona": "${personaURL}",
+            "@listingslab/auth": "${authURL}",
+            "@listingslab/shared": "${sharedURL}",
+            
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
             "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
             "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js"
@@ -129,20 +142,20 @@ export default function makeHTML(req:any) {
       <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>  
 
       <script>
-        var ssr = ${JSON.stringify(content, null, 2)};
+var ssr = ${JSON.stringify(content, null, 2)};
       </script>
       
     </head>
     <body>
-      <noscript>You need a LOT of JavaScript to use  <a
-        href="https://listingslab.com/pwa"
-        target="_self"
-        title="PWAs are mobile apps that took all the right vitamins">
-        Progressive Web Apps
-      </a>(PWA)</noscript>
-      
-      
-
+      <noscript>You need a LOT of JavaScript 
+        <a
+          href="https://listingslab.com/pwa"
+          target="_self"
+          title="${excerpt}">
+          ${title}
+        </a>
+        <p>${excerpt}</p>
+      </noscript>
       <script>
         System.import('@listingslab/root-config');
       </script>
