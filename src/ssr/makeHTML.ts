@@ -3,16 +3,30 @@ import pJSON from "../../package.json";
 
 const getEnv = (req:any) => {
   let env = "PROD";
-  if ( req.hostname === "localhost" ) {
-    env = "LOCAL";
-  }
+  if ( req.hostname === "localhost" ) env = "LOCAL";
   return env;
+};
+
+const getServiceWorker = (req:any) => {
+  const env = getEnv(req);
+  if(env === "LOCAL")return "";
+  return `<script>
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                  console.log('ServiceWorker Success scope: ', registration.scope);
+                }, function(err) {
+                  console.warn('ServiceWorker Fail', err);
+                });
+              });
+            }
+          </script>`;
 };
 
 export default function makeHTML(req:any) { 
   const env = getEnv(req);
   const { version } = pJSON;
-  let assetsURL, siteURL, rootConfigURL, appshellURL;
+  let assetsURL, siteURL, rootConfigURL, appshellURL, menuURL;
   const siteTitle = "listingslab";
   const themeColor = "#126970";
 
@@ -20,9 +34,10 @@ export default function makeHTML(req:any) {
 
     case "LOCAL":
       siteURL = "http://localhost:5001/listingslab-pingpong/us-central1/SSR";
-      assetsURL = "http://localhost:3000/";
+      assetsURL = "http://localhost:2022/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
-      appshellURL = "http://localhost:8080/listingslab-appshell.js";
+      appshellURL = "http://localhost:1968/listingslab-appshell.js";
+      menuURL = "http://localhost:1975/listingslab-menu.js";
       break;
 
     default:
@@ -30,14 +45,18 @@ export default function makeHTML(req:any) {
       assetsURL = "https://listingslab.com/";
       rootConfigURL = "https://listingslab.com/main/listingslab-root-config.js";
       appshellURL = "https://listingslab.com/appshell/listingslab-appshell.js";
+      menuURL = "https://listingslab.com/menu/listingslab-menu.js";
   } 
+
   const siteIcon = `${assetsURL}png/logo192.png`;
   
   const content = {
     title: "Listingslab Software",
     excerpt: "Server Side Rendering with Serverless isomorphic Node functions",
     ogImage: `${assetsURL}png/opengraph.png`,
-    assetsURL, siteURL, rootConfigURL, appshellURL, themeColor, siteTitle, siteIcon
+    assetsURL, siteURL, rootConfigURL, 
+    appshellURL, themeColor, siteTitle, siteIcon,
+    menuURL,
   }; 
   const {title, excerpt, ogImage } = content;
   
@@ -49,6 +68,7 @@ export default function makeHTML(req:any) {
       <meta name="theme-color" content="${themeColor}" />
       <meta itemprop="name" content="${siteTitle}" />
       <meta name="${siteTitle}" />
+      <title>${title} ${version}</title>
       <meta name="description" content="${excerpt}" />
       <meta name="keywords" content="pingpong, react, PWA" />
     
@@ -88,29 +108,18 @@ export default function makeHTML(req:any) {
           "imports": {
             "@listingslab/root-config": "${rootConfigURL}",
             "@listingslab/appshell": "${appshellURL}",
+            "@listingslab/menu": "${menuURL}",
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
             "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
             "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js"
           }
         }
       </script>
-      <script>
-        if ('serviceWorker' in navigator) {
-          window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-              console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }, function(err) {
-              console.log('ServiceWorker registration failed: ', err);
-            });
-          });
-        }
-      </script>
+      ${ getServiceWorker(req) }
       <link rel="manifest" href="${assetsURL}manifest.json">
       <link rel="icon" href="${assetsURL}favicon.ico" />
       <link rel="apple-touch-icon" href="${assetsURL}png/logo512.png" />
       <link type="text/css" href="${assetsURL}css/listingslab.css" rel="stylesheet" />
-
-      <title>${title} ${version}</title>
 
       <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
@@ -130,17 +139,8 @@ export default function makeHTML(req:any) {
         Progressive Web Apps
       </a>(PWA)</noscript>
       
-      <div id="ssr">
-        <div class="landing-element">
-          <img
-            alt="${title}" 
-            src="https://listingslab.com/png/logo192Dark.png" />
-        </div>
-        <div class="um">
-          <h1>${title}</h1>
-        </div>
-      </div>
       
+
       <script>
         System.import('@listingslab/root-config');
       </script>
@@ -150,3 +150,16 @@ export default function makeHTML(req:any) {
 
   return html;
 }
+
+/*
+<div id="ssr">
+        <div class="landing-element">
+          <img
+            alt="${title}" 
+            src="https://listingslab.com/png/logo192Dark.png" />
+        </div>
+        <div class="um">
+          <h1>${title}</h1>
+        </div>
+      </div>
+*/
