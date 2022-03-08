@@ -1,7 +1,7 @@
 {
-  "version": "19.2.4b",
+  "version": "19.2.5",
   "name": "@listingslab/functions",
-  "description": "Serverless isomorphic Node functions",
+  "description": "Serverless Isomorphic Node functions",
   "main": "lib/src/index.js",
   "scripts": {
     "lint": "eslint --ext .js,.ts .",

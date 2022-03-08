@@ -26,7 +26,7 @@ const getServiceWorker = (req:any) => {
 export default function makeHTML(req:any) { 
   const env = getEnv(req);
   const { version } = pJSON;
-  let assetsURL, siteURL, rootConfigURL, appshellURL, menuURL;
+  let assetsURL, siteURL, rootConfigURL, appshellURL, menuURL, personaURL;
   const siteTitle = "listingslab";
   const themeColor = "#126970";
 
@@ -38,6 +38,7 @@ export default function makeHTML(req:any) {
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       appshellURL = "http://localhost:1968/listingslab-appshell.js";
       menuURL = "http://localhost:1975/listingslab-menu.js";
+      personaURL = "http://localhost:1914/listingslab-persona.js";
       break;
 
     default:
@@ -46,6 +47,7 @@ export default function makeHTML(req:any) {
       rootConfigURL = "https://listingslab.com/main/listingslab-root-config.js";
       appshellURL = "https://listingslab.com/appshell/listingslab-appshell.js";
       menuURL = "https://listingslab.com/menu/listingslab-menu.js";
+      personaURL = "https://listingslab.com/persona/listingslab-persona.js";
   } 
 
   const siteIcon = `${assetsURL}png/logo192.png`;
