@@ -1,5 +1,5 @@
 {
-  "version": "19.2.5",
+  "version": "19.2.6",
   "name": "@listingslab/functions",
   "description": "Serverless Isomorphic Node functions",
   "main": "lib/src/index.js",

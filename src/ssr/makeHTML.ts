@@ -26,7 +26,7 @@ const getServiceWorker = (req:any) => {
 export default function makeHTML(req:any) { 
   const env = getEnv(req);
   const { version } = pJSON;
-  let assetsURL, siteURL, rootConfigURL, appshellURL, 
+  let assetsURL, siteURL, rootConfigURL, 
       menuURL, personaURL, authURL, sharedURL;
   
   const siteTitle = "Listingslab Software";
@@ -38,7 +38,6 @@ export default function makeHTML(req:any) {
       siteURL = "http://localhost:5001/listingslab-pingpong/us-central1/SSR";
       assetsURL = "http://localhost:2022/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
-      appshellURL = "http://localhost:1968/listingslab-appshell.js";
       menuURL = "http://localhost:1975/listingslab-menu.js";
       personaURL = "http://localhost:1914/listingslab-persona.js";
       authURL = "http://localhost:1918/listingslab-auth.js";
@@ -49,7 +48,6 @@ export default function makeHTML(req:any) {
       siteURL = "https://listingslab.com";
       assetsURL = "https://listingslab.com/";
       rootConfigURL = "https://listingslab.com/main/listingslab-root-config.js";
-      appshellURL = "https://listingslab.com/appshell/listingslab-appshell.js";
       menuURL = "https://listingslab.com/menu/listingslab-menu.js";
       personaURL = "https://listingslab.com/persona/listingslab-persona.js";
       authURL = "https://listingslab.com/auth/listingslab-auth.js";
@@ -63,7 +61,7 @@ export default function makeHTML(req:any) {
     excerpt: "Server Side Rendering with Serverless Isomorphic Node and stuff like that",
     ogImage: `${assetsURL}png/opengraph.png`,
     assetsURL, siteURL, rootConfigURL, 
-    appshellURL, themeColor, siteTitle, siteIcon,
+    themeColor, siteTitle, siteIcon,
     menuURL, personaURL, authURL, sharedURL,
   }; 
   const {title, excerpt, ogImage } = content;
@@ -118,7 +116,6 @@ export default function makeHTML(req:any) {
           "imports": {
 
             "@listingslab/root-config": "${rootConfigURL}",
-            "@listingslab/appshell": "${appshellURL}",
             "@listingslab/menu": "${menuURL}",
             "@listingslab/persona": "${personaURL}",
             "@listingslab/auth": "${authURL}",
