@@ -1,7 +1,8 @@
 {
-  "version": "19.2.6",
-  "name": "@listingslab/functions",
-  "description": "Serverless Isomorphic Node functions",
+  "name": "@listingslab/firebase",
+  "version": "19.2.7",
+
+  "description": "Firebase Serverless Isomorphic Node functions and more",
   "main": "lib/src/index.js",
   "scripts": {
     "lint": "eslint --ext .js,.ts .",

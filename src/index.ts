@@ -57,9 +57,9 @@ const sendResponse = (res:any, req:any, responseObj:any) => {
 };
 
 const getServiceURL = (req:any) => {
-  let serviceURL = "https://us-central1-listingslab-pingpong.cloudfunctions.net/API";
+  let serviceURL = "https://us-central1-listingslab-app.cloudfunctions.net/API";
   if ( req.hostname === "localhost" ) {
-    serviceURL = "http://localhost:5001/listingslab-pingpong/us-central1/API";
+    serviceURL = "hhttp://localhost:5001/listingslab-app/us-central1/API";
   }
   return serviceURL;
 };
