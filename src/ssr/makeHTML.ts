@@ -27,7 +27,7 @@ export default function makeHTML(req:any) {
   const env = getEnv(req);
   const { version } = pJSON;
   let assetsURL, siteURL, rootConfigURL, 
-      menuURL, personaURL, authURL, sharedURL;
+      menuURL, sharedURL;
   
   const siteTitle = "Listingslab Software";
   const themeColor = "#126970";
@@ -39,8 +39,6 @@ export default function makeHTML(req:any) {
       assetsURL = "http://localhost:2022/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       menuURL = "http://localhost:1975/listingslab-menu.js";
-      personaURL = "http://localhost:1914/listingslab-persona.js";
-      authURL = "http://localhost:1918/listingslab-auth.js";
       sharedURL = "http://localhost:1945/listingslab-shared.js";
       break;
 
@@ -49,8 +47,6 @@ export default function makeHTML(req:any) {
       assetsURL = "https://listingslab.com/";
       rootConfigURL = "https://listingslab.com/main/listingslab-root-config.js";
       menuURL = "https://listingslab.com/menu/listingslab-menu.js";
-      personaURL = "https://listingslab.com/persona/listingslab-persona.js";
-      authURL = "https://listingslab.com/auth/listingslab-auth.js";
       sharedURL = "https://listingslab.com/shared/listingslab-shared.js";
   } 
 
@@ -62,7 +58,7 @@ export default function makeHTML(req:any) {
     ogImage: `${assetsURL}png/opengraph.png`,
     assetsURL, siteURL, rootConfigURL, 
     themeColor, siteTitle, siteIcon,
-    menuURL, personaURL, authURL, sharedURL,
+    menuURL, sharedURL,
   }; 
   const {title, excerpt, ogImage } = content;
   
@@ -117,8 +113,6 @@ export default function makeHTML(req:any) {
 
             "@listingslab/root-config": "${rootConfigURL}",
             "@listingslab/menu": "${menuURL}",
-            "@listingslab/persona": "${personaURL}",
-            "@listingslab/auth": "${authURL}",
             "@listingslab/shared": "${sharedURL}",
             
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
