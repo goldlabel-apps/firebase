@@ -143,7 +143,7 @@ var ssr = ${JSON.stringify(content, null, 2)};
       </script>
       
     </head>
-    <body>
+    <body class="stage">
       <noscript>You need a LOT of JavaScript 
         <a
           href="https://listingslab.com/pwa"
