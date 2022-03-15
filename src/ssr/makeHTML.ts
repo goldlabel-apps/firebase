@@ -27,7 +27,7 @@ export default function makeHTML(req:any) {
   const env = getEnv(req);
   const { version } = pJSON;
   let assetsURL, siteURL, rootConfigURL, 
-      menuURL, sharedURL;
+      menuURL, sharedURL, filebrowserURL;
   
   const siteTitle = "Listingslab Software";
   const themeDark = "#126970";
@@ -41,6 +41,7 @@ export default function makeHTML(req:any) {
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       menuURL = "http://localhost:1975/listingslab-menu.js";
       sharedURL = "http://localhost:1945/listingslab-shared.js";
+      filebrowserURL = "http://localhost:1985/listingslab-filebrowser.js";
       break;
 
     default:
@@ -49,6 +50,7 @@ export default function makeHTML(req:any) {
       rootConfigURL = "https://listingslab.com/main/listingslab-root-config.js";
       menuURL = "https://listingslab.com/menu/listingslab-menu.js";
       sharedURL = "https://listingslab.com/shared/listingslab-shared.js";
+      filebrowserURL = "https://listingslab.com/filebrowser/listingslab-filebrowser.js";
   } 
 
   const siteIcon = `${assetsURL}png/logo192.png`;
@@ -59,7 +61,7 @@ export default function makeHTML(req:any) {
     ogImage: `${assetsURL}png/opengraph.png`,
     assetsURL, siteURL, rootConfigURL, 
     themeDark, themeLight, siteTitle, siteIcon,
-    menuURL, sharedURL,
+    menuURL, sharedURL, filebrowserURL,
   }; 
   const {title, excerpt, ogImage } = content;
   
@@ -111,9 +113,13 @@ export default function makeHTML(req:any) {
             "@listingslab/root-config": "${rootConfigURL}",
             "@listingslab/menu": "${menuURL}",
             "@listingslab/shared": "${sharedURL}",
+            "@listingslab/filebrowser": "${filebrowserURL}",
+            
+            "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.3/gsap.min.js",
             "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
             "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
+            "react-redux": "https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.6/react-redux.min.js",
             "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js"
           }
         }
