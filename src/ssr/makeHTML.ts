@@ -31,7 +31,7 @@ export default function makeHTML(req:any) {
   
   const siteTitle = "Listingslab Software";
   const themeDark = "#126970";
-  const themeLight = "#CCCCCC";
+  const themeLight = "#edf6f5";
 
   switch( env ) {
 
@@ -47,7 +47,7 @@ export default function makeHTML(req:any) {
     default:
       siteURL = "https://listingslab.com";
       assetsURL = "https://listingslab.com/";
-      rootConfigURL = "https://listingslab.com/main/listingslab-root-config.js";
+      rootConfigURL = "https://listingslab.com/root-config/listingslab-root-config.js";
       menuURL = "https://listingslab.com/menu/listingslab-menu.js";
       sharedURL = "https://listingslab.com/shared/listingslab-shared.js";
       filebrowserURL = "https://listingslab.com/filebrowser/listingslab-filebrowser.js";
@@ -70,7 +70,7 @@ export default function makeHTML(req:any) {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="theme-color" content="${themeDark}" />
+      <meta name="theme-color" content="${themeLight}" />
       <meta itemprop="name" content="${siteTitle}" />
       <meta name="${siteTitle}" />
 
@@ -83,6 +83,8 @@ export default function makeHTML(req:any) {
       <meta name="geo.placename" content="Island Countries" />
       <meta name="geo.position" content="35.88999533; 14.43971116" />
       <meta name="ICBM" content="35.88999533, 14.43971116" />
+      
+      <style>html { height: 100%; background-color: #edf6f5; color: #126970; }</style>
 
       <meta property="og:type" content="website" />
       <meta property="og:url" content="${siteURL}" />
@@ -99,14 +101,14 @@ export default function makeHTML(req:any) {
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <meta name="mobile-web-app-capable" content="yes" />
       <meta name="HandheldFriendly" content="true" />
-      <meta name="msapplication-TileColor" content="${themeDark}">
-      <meta name="msapplication-TileImage" content="${assetsURL}png/ms-icon-144x144.png">
+      <meta name="msapplication-TileColor" content="${themeLight}">
+      <meta name="msapplication-TileImage" content="${assetsURL}png/ms-icon-144x144Dark.png">
 
       <meta name="importmap-type" content="systemjs-importmap" />
       <link rel="manifest" href="${assetsURL}manifest.json">
       <link rel="icon" href="${assetsURL}favicon.ico" />
       <link rel="apple-touch-icon" href="${assetsURL}png/logo512.png" />
-      <link type="text/css" href="${assetsURL}css/listingslab.css" rel="stylesheet" />
+
       <script type="systemjs-importmap">
         {
           "imports": {
