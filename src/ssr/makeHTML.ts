@@ -61,7 +61,7 @@ export default function makeHTML(req:any) {
     ogImage: `${assetsURL}png/opengraph.png`,
     assetsURL, siteURL, rootConfigURL, 
     themeDark, themeLight, siteTitle, siteIcon,
-    menuURL, sharedURL, filebrowserURL,
+    menuURL, sharedURL, filebrowserURL, version
   }; 
   const {title, excerpt, ogImage } = content;
   
@@ -77,21 +77,17 @@ export default function makeHTML(req:any) {
       <title>${title} ${version}</title>
       
       <meta name="description" content="${excerpt}" />
-      <meta name="keywords" content="ssr, node, react, PWA " />
-  
+      <meta name="keywords" content="ssr, node, react, PWA" />
       <meta name="geo.region" content="Mediterranean Islands" />
       <meta name="geo.placename" content="Island Countries" />
       <meta name="geo.position" content="35.88999533; 14.43971116" />
       <meta name="ICBM" content="35.88999533, 14.43971116" />
-      
-      <style>html { height: 100%; background-color: #edf6f5; color: #126970; }</style>
-
       <meta property="og:type" content="website" />
       <meta property="og:url" content="${siteURL}" />
       <meta property="og:title" content="${title} | ${siteTitle}" />
       <meta property="og:description" content="${excerpt}" />
       <meta property="og:image" content="${ogImage}" />
-
+      <style>html { height: 100%; background-image: (#edf6f5, #bcc3c2); }</style>
       <meta name="twitter:site" content="https://listingslab.com/twitter" />
       <meta name="twitter:title" content="${title}" />
       <meta name="twitter:description" content="${excerpt}"/>
