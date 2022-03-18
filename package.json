@@ -1,6 +1,6 @@
 {
   "name": "@listingslab/firebase",
-  "version": "19.4.0b",
+  "version": "19.4.0",
   "description": "Firebase Serverless Isomorphic Node functions and more",
   "main": "lib/src/index.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "watch": "npx tsc-watch"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "firebase": "^9.6.3",

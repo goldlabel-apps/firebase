@@ -1,39 +1,23 @@
 /* eslint-disable */
 import pJSON from "../../package.json";
 import { getEnv } from "./getEnv";
+import { getServiceWorker } from "./getServiceWorker";
+import { getMdList } from "./getMdList";
+import { getRouteList } from "./getRouteList";
 
-// const getMdList = (req:any) => {
-//   let md = [];
-//   return md;
-// };
-
-
-
-const getServiceWorker = (req:any) => {
-  const env = getEnv(req);
-  if(env === "LOCAL")return "";
-  return `<script>
-            if ('serviceWorker' in navigator) {
-              window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                  console.log('ServiceWorker Success scope: ', registration.scope);
-                }, function(err) {
-                  console.warn('ServiceWorker Fail', err);
-                });
-              });
-            }
-          </script>`;
-};
 
 export default function make(req:any) { 
   const env = getEnv(req);
   const { version } = pJSON;
   let assetsURL, siteURL, rootConfigURL, 
-      menuURL, sharedURL, filebrowserURL, articleURL;
+      menuURL, sharedURL, filebrowserURL, articleURL, routeList, mdList;
   
   const siteTitle = "Listingslab Software";
   const themeDark = "#126970";
   const themeLight = "#edf6f5";
+
+  routeList = getRouteList(req, env);
+  mdList = getMdList(req, env);
 
   switch( env ) {
 
@@ -75,10 +59,9 @@ export default function make(req:any) {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="${themeLight}" />
-      <meta itemprop="name" content="${siteTitle}" />
-      <meta name="${siteTitle}" />
-
-      <title>${title} ${version}</title>
+      <meta itemprop="name" content="${siteTitle} ${version}" />
+      <meta name="${siteTitle} ${version}" />
+      <title>${title}</title>
       
       <meta name="description" content="${excerpt}" />
       <meta name="keywords" content="ssr, node, react, PWA" />
@@ -147,13 +130,21 @@ export default function make(req:any) {
         <p>${excerpt}</p>
       </noscript>
 
-        <div>
-        getEnv ${getEnv(req)}
-        </div>
+      <h4>Choose your path</h4>
+      ${ routeList }
+
+      <h4>Docs</h4>
+      ${ mdList }
 
       <script>
-        // System.import('@listingslab/root-config');
+        System.import('@listingslab/root-config');
       </script>
     </body>
   </html>`;   
 }
+
+/*
+<pre>
+  ${JSON.stringify(mdList, null, 2)}
+</pre>
+*/
