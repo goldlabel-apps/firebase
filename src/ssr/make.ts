@@ -4,6 +4,7 @@ import { getEnv } from "./getEnv";
 import { getServiceWorker } from "./getServiceWorker";
 import { getMdList } from "./getMdList";
 import { getRouteList } from "./getRouteList";
+import { getStyles } from "./getStyles";
 
 
 export default function make(req:any) { 
@@ -45,7 +46,7 @@ export default function make(req:any) {
   
   const content = {
     title: "Listingslab Software",
-    excerpt: "Server Side Rendering with Serverless Isomorphic Node and stuff like that",
+    excerpt: "",
     ogImage: `${assetsURL}png/opengraph.png`,
     assetsURL, siteURL, rootConfigURL, 
     themeDark, themeLight, siteTitle, siteIcon,
@@ -74,7 +75,7 @@ export default function make(req:any) {
       <meta property="og:title" content="${title} | ${siteTitle}" />
       <meta property="og:description" content="${excerpt}" />
       <meta property="og:image" content="${ogImage}" />
-      <style>html { height: 100%; background-image: (#edf6f5, #bcc3c2); }</style>
+      
       <meta name="twitter:site" content="https://listingslab.com/twitter" />
       <meta name="twitter:title" content="${title}" />
       <meta name="twitter:description" content="${excerpt}"/>
@@ -91,6 +92,8 @@ export default function make(req:any) {
       <link rel="manifest" href="${assetsURL}manifest.json">
       <link rel="icon" href="${assetsURL}favicon.ico" />
       <link rel="apple-touch-icon" href="${assetsURL}png/logo512.png" />
+
+      ${ getStyles(req) }
 
       <script type="systemjs-importmap">
         {
@@ -130,11 +133,12 @@ export default function make(req:any) {
         <p>${excerpt}</p>
       </noscript>
 
-      <h4>Choose your path</h4>
-      ${ routeList }
+      <div id="ssr">
+        <h1>${title}</h1>
+        <h2>${excerpt}</h2>
+        ${ routeList }
+      </div>
 
-      <h4>Docs</h4>
-      ${ mdList }
 
       <script>
         System.import('@listingslab/root-config');
