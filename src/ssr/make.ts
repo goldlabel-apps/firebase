@@ -1,11 +1,13 @@
 /* eslint-disable */
 import pJSON from "../../package.json";
+import { getEnv } from "./getEnv";
 
-const getEnv = (req:any) => {
-  let env = "PROD";
-  if ( req.hostname === "localhost" ) env = "LOCAL";
-  return env;
-};
+// const getMdList = (req:any) => {
+//   let md = [];
+//   return md;
+// };
+
+
 
 const getServiceWorker = (req:any) => {
   const env = getEnv(req);
@@ -23,7 +25,7 @@ const getServiceWorker = (req:any) => {
           </script>`;
 };
 
-export default function makeHTML(req:any) { 
+export default function make(req:any) { 
   const env = getEnv(req);
   const { version } = pJSON;
   let assetsURL, siteURL, rootConfigURL, 
@@ -144,8 +146,13 @@ export default function makeHTML(req:any) {
         </a>
         <p>${excerpt}</p>
       </noscript>
+
+        <div>
+        getEnv ${getEnv(req)}
+        </div>
+
       <script>
-        System.import('@listingslab/root-config');
+        // System.import('@listingslab/root-config');
       </script>
     </body>
   </html>`;   
