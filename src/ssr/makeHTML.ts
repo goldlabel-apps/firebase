@@ -27,7 +27,7 @@ export default function makeHTML(req:any) {
   const env = getEnv(req);
   const { version } = pJSON;
   let assetsURL, siteURL, rootConfigURL, 
-      menuURL, sharedURL, filebrowserURL;
+      menuURL, sharedURL, filebrowserURL, articleURL;
   
   const siteTitle = "Listingslab Software";
   const themeDark = "#126970";
@@ -42,6 +42,7 @@ export default function makeHTML(req:any) {
       menuURL = "http://localhost:1975/listingslab-menu.js";
       sharedURL = "http://localhost:1945/listingslab-shared.js";
       filebrowserURL = "http://localhost:1985/listingslab-filebrowser.js";
+      articleURL = "http://localhost:1977/listingslab-article.js";
       break;
 
     default:
@@ -51,6 +52,7 @@ export default function makeHTML(req:any) {
       menuURL = "https://listingslab.com/menu/listingslab-menu.js";
       sharedURL = "https://listingslab.com/shared/listingslab-shared.js";
       filebrowserURL = "https://listingslab.com/filebrowser/listingslab-filebrowser.js";
+      articleURL = "https://listingslab.com/article/listingslab-article.js";
   } 
 
   const siteIcon = `${assetsURL}png/logo192.png`;
@@ -112,7 +114,8 @@ export default function makeHTML(req:any) {
             "@listingslab/menu": "${menuURL}",
             "@listingslab/shared": "${sharedURL}",
             "@listingslab/filebrowser": "${filebrowserURL}",
-            
+            "@listingslab/article": "${articleURL}",
+
             "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.3/gsap.min.js",
             "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
