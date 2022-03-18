@@ -23,6 +23,7 @@ API.get("/", (req:any, res:any) => {
     routes: `${getServiceURL(req)}/routes`,
   });
 });
+
 API.get("/routes", (req:any, res:any) => {
   sendResponse(res, req, {
     status: 200,
@@ -59,7 +60,7 @@ const sendResponse = (res:any, req:any, responseObj:any) => {
 const getServiceURL = (req:any) => {
   let serviceURL = "https://us-central1-listingslab-app.cloudfunctions.net/API";
   if ( req.hostname === "localhost" ) {
-    serviceURL = "hhttp://localhost:5001/listingslab-app/us-central1/API";
+    serviceURL = "http://localhost:5001/listingslab-app/us-central1/API";
   }
   return serviceURL;
 };
