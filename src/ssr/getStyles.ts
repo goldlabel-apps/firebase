@@ -24,8 +24,17 @@ export const getStyles = (): string => {
               font-weight: bold;
             }
             #ssr{
-              margin: 8px;
+              display: flex;
+              max-width: 600px;
+              margin: auto;
               padding: 8px;
+              border: 1px solid yellow;
+              background: pink;
             }
+            #ssr .logo{
+              border: 1px solid black;
+              padding: 16px;
+            }
+            
           </style>`;
 };

@@ -42,7 +42,7 @@ export default function make(req:any) {
       articleURL = "https://listingslab.com/article/listingslab-article.js";
   } 
 
-  const siteIcon = `${assetsURL}png/logo192.png`;
+  const siteIcon = `${assetsURL}png/listingslab512.png`;
   
   const content = {
     title: "Listingslab Software",
@@ -130,18 +130,26 @@ export default function make(req:any) {
           title="${excerpt}">
           ${title}
         </a>
+        
         <p>${excerpt}</p>
       </noscript>
 
       <div id="ssr">
+
+      <div class="logo">
+        <a href="?logoclick">
+          <img src="${assetsURL}png/listingslab32.png" align="left" width="32" height="32" />
+        </a>
+      </div>
+        
         <h1>${title}</h1>
         <h2>${excerpt}</h2>
         ${ routeList }
+        
       </div>
 
-
       <script>
-        System.import('@listingslab/root-config');
+        // System.import('@listingslab/root-config');
       </script>
     </body>
   </html>`;   
