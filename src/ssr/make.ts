@@ -11,7 +11,7 @@ export default function make(req:any) {
   const env = getEnv(req);
   const { version } = pJSON;
   let assetsURL, siteURL, rootConfigURL, 
-      menuURL, sharedURL, filebrowserURL, articleURL, routeList, mdList;
+      menuURL, sharedURL, filebrowserURL, articleURL, routeList;
   
   const siteTitle = "Listingslab Software";
   const themeDark = "#126970";
