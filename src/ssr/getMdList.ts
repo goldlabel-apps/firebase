@@ -11,12 +11,12 @@ export const getMdList = (req:any, env:string): string => {
   const endpoint = baseURL + "/files.json";
 
   axios.get(endpoint)
-          .then(response => {
-            return "response.data" + response.data.toString();
-          })
-          .catch(error => {
-            return error;
-          })
+      .then((response) => {
+        return "response.data" + response.data.toString();
+      })
+      .catch((error) => {
+        return error;
+      });
 
   return "not done yet";
 
@@ -39,7 +39,7 @@ export const getMdList = (req:any, env:string): string => {
   //   },
   // ];
 
-  
+
   // let mdHtml = "<ul>";
   // for (let i=0; i < mdArr.length; i++) {
   //   mdHtml += "<li>";

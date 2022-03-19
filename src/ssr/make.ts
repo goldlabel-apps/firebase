@@ -2,7 +2,7 @@
 import pJSON from "../../package.json";
 import { getEnv } from "./getEnv";
 import { getServiceWorker } from "./getServiceWorker";
-import { getMdList } from "./getMdList";
+// import { getMdList } from "./getMdList";
 import { getRouteList } from "./getRouteList";
 import { getStyles } from "./getStyles";
 
@@ -18,7 +18,7 @@ export default function make(req:any) {
   const themeLight = "#edf6f5";
 
   routeList = getRouteList(req, env);
-  mdList = getMdList(req, env);
+  // mdList = getMdList(req, env);
 
   switch( env ) {
 

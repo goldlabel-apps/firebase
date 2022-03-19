@@ -45,7 +45,7 @@ export const getRouteList = (req:any, env:string): string => {
     // mdHtml += "<br />";
     // mdHtml += mdArr[i].url;
     mdHtml += "</li>";
-  };
+  }
   mdHtml += "</ul>";
 
   return mdHtml;
