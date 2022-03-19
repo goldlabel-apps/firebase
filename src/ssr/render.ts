@@ -7,18 +7,19 @@ import { getRouteList } from "./getRouteList";
 import { getStyles } from "./getStyles";
 
 
-export default function make(req:any, db:any) { 
+export default function render(req:any) { 
+  
   const env = getEnv(req);
   const { version } = pJSON;
   let assetsURL, siteURL, rootConfigURL, 
-      menuURL, sharedURL, filebrowserURL, articleURL, routeList;
+      menuURL, sharedURL, filebrowserURL, 
+      articleURL, routeList;
   
   const siteTitle = "Listingslab Software";
   const themeDark = "#126970";
   const themeLight = "#edf6f5";
 
   routeList = getRouteList(req, env);
-  // mdList = getMdList(req, env);
 
   switch( env ) {
 
