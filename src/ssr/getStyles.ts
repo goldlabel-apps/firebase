@@ -6,7 +6,7 @@ export const getStyles = (): string => {
               height: 100%;
             }
             body {
-                background-image: linear-gradient(#edf6f5, #bcc3c2);
+                background-image: linear-gradient(#edf6f5, #fff);
                 border: 0;
                 margin: 0;
                 padding: 0;
@@ -19,18 +19,10 @@ export const getStyles = (): string => {
               list-style: none;
             }
             a {
-              color: #126970;
               text-decoration: none;
             }
             #ssr{
-              display: none;
-              margin: auto;
-              padding: 8px;
+              visibility: hidden;
             }
-            #ssr .logo{
-              padding-top: 25px;
-              padding-right: 16px;
-            }
-            
           </style>`;
 };

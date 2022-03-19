@@ -2,7 +2,7 @@
 // @ts-nocheck
 import express from "express";
 import cors from "cors";
-import { endpointRouter } from "./endpointRouter";
+import {endpointRouter} from "./endpointRouter";
 
 // import * as admin from "firebase-admin";
 // import { serviceAccount } from "../serviceAccountKey";

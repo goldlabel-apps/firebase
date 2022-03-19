@@ -16,8 +16,8 @@ export default function render(req:any) {
       articleURL, routeList;
   
   const siteTitle = "Listingslab Software";
-  const themeDark = "#126970";
-  const themeLight = "#edf6f5";
+  const themeDark = "#158790";
+  const themeLight = "#158790";
 
   routeList = getRouteList(req, env);
 
@@ -63,6 +63,7 @@ export default function render(req:any) {
       <meta name="theme-color" content="${themeLight}" />
       <meta itemprop="name" content="${siteTitle} ${version}" />
       <meta name="${siteTitle} ${version}" />
+      
       <title>${title}</title>
       
       <meta name="description" content="${excerpt}" />
