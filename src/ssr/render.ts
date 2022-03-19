@@ -16,8 +16,8 @@ export default function render(req:any) {
       articleURL, routeList;
   
   const siteTitle = "Listingslab Software";
-  const themeDark = "#158790";
-  const themeLight = "#158790";
+  const themeDark = "#FFF";
+  const themeLight = "#FFF";
 
   routeList = getRouteList(req, env);
 
