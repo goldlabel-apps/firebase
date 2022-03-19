@@ -23,8 +23,7 @@ export const getStyles = (): string => {
               text-decoration: none;
             }
             #ssr{
-              display: flex;
-              max-width: 600px;
+              display: none;
               margin: auto;
               padding: 8px;
             }

@@ -6,6 +6,8 @@ import express from "express";
 import cors from "cors";
 import make from "./ssr/make";
 
+import {showAPI} from "./api/showAPI";
+
 console.warn(pJSON.name + " vs " + pJSON.version);
 
 admin.initializeApp({
@@ -22,3 +24,4 @@ SSR.get("*", (req:any, res:any) => {
 });
 
 exports.SSR = functions.https.onRequest(SSR);
+exports.API = functions.https.onRequest(showAPI);
