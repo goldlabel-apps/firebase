@@ -21,19 +21,16 @@ export const getStyles = (): string => {
             a {
               color: #126970;
               text-decoration: none;
-              font-weight: bold;
             }
             #ssr{
               display: flex;
               max-width: 600px;
               margin: auto;
               padding: 8px;
-              border: 1px solid yellow;
-              background: pink;
             }
             #ssr .logo{
-              border: 1px solid black;
-              padding: 16px;
+              padding-top: 25px;
+              padding-right: 16px;
             }
             
           </style>`;

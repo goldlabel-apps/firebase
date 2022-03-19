@@ -7,7 +7,7 @@ import { getRouteList } from "./getRouteList";
 import { getStyles } from "./getStyles";
 
 
-export default function make(req:any) { 
+export default function make(req:any, db:any) { 
   const env = getEnv(req);
   const { version } = pJSON;
   let assetsURL, siteURL, rootConfigURL, 
@@ -149,7 +149,7 @@ export default function make(req:any) {
       </div>
 
       <script>
-        // System.import('@listingslab/root-config');
+        System.import('@listingslab/root-config');
       </script>
     </body>
   </html>`;   
