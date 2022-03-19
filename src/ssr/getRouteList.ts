@@ -1,5 +1,5 @@
 // import axios from "axios";
-export const getRouteList = (req:any, env:string): string => {
+export const getRouteList = (req:unknown, env:string): string => {
   let baseURL;
   switch ( env ) {
     case "LOCAL":

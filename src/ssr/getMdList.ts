@@ -1,5 +1,5 @@
 import axios from "axios";
-export const getMdList = (req:any, env:string): string => {
+export const getMdList = (req:unknown, env:string): string => {
   let baseURL;
   switch ( env ) {
     case "LOCAL":

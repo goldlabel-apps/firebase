@@ -93,7 +93,7 @@ export default function make(req:any) {
       <link rel="icon" href="${assetsURL}favicon.ico" />
       <link rel="apple-touch-icon" href="${assetsURL}png/logo512.png" />
 
-      ${ getStyles(req) }
+      ${ getStyles() }
 
       <script type="systemjs-importmap">
         {

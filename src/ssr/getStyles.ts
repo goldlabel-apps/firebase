@@ -1,4 +1,6 @@
-export const getStyles = (req:unknown): string => {
+/* eslint max-len: "off" */
+
+export const getStyles = (): string => {
   return `<style>
             html {
               height: 100%;
