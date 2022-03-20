@@ -6,7 +6,7 @@ export const getStyles = (): string => {
               height: 100%;
             }
             body {
-                background-image: linear-gradient(#edf6f5, #fff);
+                background-image: linear-gradient(#fff, #edf6f5);
                 border: 0;
                 margin: 0;
                 padding: 0;
@@ -22,7 +22,32 @@ export const getStyles = (): string => {
               text-decoration: none;
             }
             #ssr{
-              visibility: hidden;
+              display:flex;
+              width: 355px;
+              margin: auto;
+              padding-top: 8px;
+            }
+            #ssr h1 {
+              font-size: 0.90rem;
+              font-weight: normal;
+            }
+            #ssr .logo {
+              width: 24px;
+              height: 24px;
+              margin: 8px;
+            }
+            #ssr a {
+              color: #18a2ad;
+            }
+            #ssr ul, #ssr li{
+              font-size: 0.70rem;
+              margin: 0;
+              display:inline;
+              list-style: none;
+            }
+            
+            #ssr .routeList {
+              padding-top: 8px;
             }
           </style>`;
 };

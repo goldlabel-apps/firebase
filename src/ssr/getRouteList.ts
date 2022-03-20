@@ -41,9 +41,6 @@ export const getRouteList = (req:unknown, env:string): string => {
     mdHtml += "<a href='" + mdArr[i].url + "'>";
     mdHtml += mdArr[i].title;
     mdHtml += "</a>&nbsp;";
-    // mdHtml += mdArr[i].excerpt;
-    // mdHtml += "<br />";
-    // mdHtml += mdArr[i].url;
     mdHtml += "</li>";
   }
   mdHtml += "</ul>";

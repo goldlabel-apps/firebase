@@ -15,14 +15,9 @@ export default function render(req:any) {
       menuURL, sharedURL, filebrowserURL, 
       articleURL, routeList;
   
-  const siteTitle = "Listingslab Software";
-  const themeDark = "#FFF";
-  const themeLight = "#FFF";
 
-  routeList = getRouteList(req, env);
 
   switch( env ) {
-
     case "LOCAL":
       siteURL = "http://localhost:5001/listingslab-app/us-central1/SSR";
       assetsURL = "http://localhost:2022/";
@@ -32,7 +27,6 @@ export default function render(req:any) {
       filebrowserURL = "http://localhost:1985/listingslab-filebrowser.js";
       articleURL = "http://localhost:1977/listingslab-article.js";
       break;
-
     default:
       siteURL = "https://listingslab.com";
       assetsURL = "https://listingslab.com/";
@@ -42,18 +36,21 @@ export default function render(req:any) {
       filebrowserURL = "https://listingslab.com/filebrowser/listingslab-filebrowser.js";
       articleURL = "https://listingslab.com/article/listingslab-article.js";
   } 
-
+  const siteTitle = "Listingslab Software";
   const siteIcon = `${assetsURL}png/listingslab512.png`;
-  
+  const themeLight = "#FFF";
   const content = {
-    title: "Listingslab Software",
-    excerpt: "",
+    title: "The Listingslab Process",
+    excerpt: "Process describes all the time, tasks, conversations and work needed to take a business requirement from start to end.",
     ogImage: `${assetsURL}png/opengraph.png`,
+    image: `${assetsURL}png/listingslab512.png`,
     assetsURL, siteURL, rootConfigURL, 
-    themeDark, themeLight, siteTitle, siteIcon,
+    themeLight, siteTitle, siteIcon,
     menuURL, sharedURL, filebrowserURL, version
   }; 
+  routeList = getRouteList(req, env);
   const {title, excerpt, ogImage } = content;
+
   
   return `<!DOCTYPE html>
   <html lang="en">
@@ -125,29 +122,25 @@ export default function render(req:any) {
       
     </head>
     <body>
-      <noscript>You need a LOT of JavaScript 
-        <a
-          href="https://listingslab.com/pwa"
+    
+      <noscript>You need a LOT of JavaScript to use this App
+        <a href="https://listingslab.com/javascript"
           target="_self"
           title="${excerpt}">
           ${title}
         </a>
-        
-        <p>${excerpt}</p>
       </noscript>
 
       <div id="ssr">
-
-      <div class="logo">
-        <a href="?logoclick">
-          <img src="${assetsURL}png/listingslab32.png" align="left" width="32" height="32" />
+        <a href="https://listingslab.com">
+          <img class="logo" src="${assetsURL}png/listingslab32.png" align="left" />
         </a>
-      </div>
-        
-        <h1>${title}</h1>
-        <h2>${excerpt}</h2>
-        ${ routeList }
-        
+        <a href="https://listingslab.com" title="${siteTitle}">
+          <h1>${siteTitle}</h1>
+        </a>
+        <div class="routeList">
+          ${ routeList }
+        </div>
       </div>
 
       <script>
