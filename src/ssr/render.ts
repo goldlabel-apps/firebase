@@ -13,9 +13,7 @@ export default function render(req:any) {
   const { version } = pJSON;
   let assetsURL, siteURL, rootConfigURL, 
       menuURL, sharedURL, filebrowserURL, 
-      articleURL, routeList;
-  
-
+      articleURL, routeList, personaURL;
 
   switch( env ) {
     case "LOCAL":
@@ -26,6 +24,7 @@ export default function render(req:any) {
       sharedURL = "http://localhost:1945/listingslab-shared.js";
       filebrowserURL = "http://localhost:1985/listingslab-filebrowser.js";
       articleURL = "http://localhost:1977/listingslab-article.js";
+      personaURL = "http://localhost:1234/listingslab-persona.js";
       break;
     default:
       siteURL = "https://listingslab.com";
@@ -35,6 +34,7 @@ export default function render(req:any) {
       sharedURL = "https://listingslab.com/shared/listingslab-shared.js";
       filebrowserURL = "https://listingslab.com/filebrowser/listingslab-filebrowser.js";
       articleURL = "https://listingslab.com/article/listingslab-article.js";
+      personaURL = "https://listingslab.com/listingslab-persona.js";
   } 
   const siteTitle = "Listingslab Software";
   const siteIcon = `${assetsURL}png/listingslab512.png`;
@@ -51,7 +51,6 @@ export default function render(req:any) {
   routeList = getRouteList(req, env);
   const {title, excerpt, ogImage } = content;
 
-  
   return `<!DOCTYPE html>
   <html lang="en">
     <head>
@@ -97,18 +96,19 @@ export default function render(req:any) {
       <script type="systemjs-importmap">
         {
           "imports": {
+            "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js",
             "@listingslab/root-config": "${rootConfigURL}",
             "@listingslab/menu": "${menuURL}",
             "@listingslab/shared": "${sharedURL}",
             "@listingslab/filebrowser": "${filebrowserURL}",
             "@listingslab/article": "${articleURL}",
-
-            "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.3/gsap.min.js",
-            "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
+            "@listingslab/persona": "${personaURL}",
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
             "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
             "react-redux": "https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.6/react-redux.min.js",
-            "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js"
+            "react-draggable": "https://cdn.jsdelivr.net/npm/react-draggable@4.4.4/build/cjs/cjs.min.js",
+            "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.3/gsap.min.js",
+            "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
           }
         }
       </script>
@@ -144,14 +144,10 @@ export default function render(req:any) {
       </div>
 
       <script>
+        // github.com/listingslab-software/root-config
         System.import('@listingslab/root-config');
       </script>
+
     </body>
   </html>`;   
 }
-
-/*
-<pre>
-  ${JSON.stringify(mdList, null, 2)}
-</pre>
-*/
