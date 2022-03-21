@@ -32,8 +32,8 @@ export default function render(req:any) {
   const siteIcon = `${assetsURL}png/listingslab512.png`;
   const themeLight = "#FFF";
   const content = {
-    title: "The Listingslab Process",
-    excerpt: "Process describes all the time, tasks, conversations and work needed to take a business requirement from start to end.",
+    title: "Listingslab Software",
+    excerpt: "GitHub, Linkedin, Facebook, YouTube",
     ogImage: `${assetsURL}png/opengraph.png`,
     image: `${assetsURL}png/listingslab512.png`,
     assetsURL, siteURL, rootConfigURL, 
