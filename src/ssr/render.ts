@@ -1,40 +1,32 @@
 /* eslint-disable */
 import pJSON from "../../package.json";
-import { getEnv } from "./getEnv";
-import { getServiceWorker } from "./getServiceWorker";
-// import { getMdList } from "./getMdList";
-import { getRouteList } from "./getRouteList";
-import { getStyles } from "./getStyles";
-
+import { getEnv } from "./get/getEnv";
+import { getServiceWorker } from "./get/getServiceWorker";
+import { getRouteList } from "./get/getRouteList";
+import { getStyles } from "./get/getStyles";
 
 export default function render(req:any) { 
   
   const env = getEnv(req);
   const { version } = pJSON;
-  let assetsURL, siteURL, rootConfigURL, 
-      menuURL, sharedURL, filebrowserURL, 
-      articleURL, routeList, personaURL;
+  let assetsURL, routeList, siteURL, rootConfigURL, sharedURL, articleURL, authURL;
 
   switch( env ) {
     case "LOCAL":
       siteURL = "http://localhost:5001/listingslab-app/us-central1/SSR";
       assetsURL = "http://localhost:2022/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
-      menuURL = "http://localhost:1975/listingslab-menu.js";
       sharedURL = "http://localhost:1945/listingslab-shared.js";
-      filebrowserURL = "http://localhost:1985/listingslab-filebrowser.js";
       articleURL = "http://localhost:1977/listingslab-article.js";
-      personaURL = "http://localhost:1234/listingslab-persona.js";
+      authURL = "http://localhost:4433/listingslab-auth.js";
       break;
     default:
       siteURL = "https://listingslab.com";
       assetsURL = "https://listingslab.com/";
       rootConfigURL = "https://listingslab.com/root-config/listingslab-root-config.js";
-      menuURL = "https://listingslab.com/menu/listingslab-menu.js";
       sharedURL = "https://listingslab.com/shared/listingslab-shared.js";
-      filebrowserURL = "https://listingslab.com/filebrowser/listingslab-filebrowser.js";
       articleURL = "https://listingslab.com/article/listingslab-article.js";
-      personaURL = "https://listingslab.com/listingslab-persona.js";
+      authURL = "https://listingslab.com/listingslab-auth.js";
   } 
   const siteTitle = "Listingslab Software";
   const siteIcon = `${assetsURL}png/listingslab512.png`;
@@ -46,8 +38,10 @@ export default function render(req:any) {
     image: `${assetsURL}png/listingslab512.png`,
     assetsURL, siteURL, rootConfigURL, 
     themeLight, siteTitle, siteIcon,
-    menuURL, sharedURL, filebrowserURL, version
+    sharedURL,
+    version,
   }; 
+
   routeList = getRouteList(req, env);
   const {title, excerpt, ogImage } = content;
 
@@ -63,11 +57,13 @@ export default function render(req:any) {
       <title>${title}</title>
       
       <meta name="description" content="${excerpt}" />
-      <meta name="keywords" content="ssr, node, react, PWA" />
-      <meta name="geo.region" content="Mediterranean Islands" />
-      <meta name="geo.placename" content="Island Countries" />
-      <meta name="geo.position" content="35.88999533; 14.43971116" />
-      <meta name="ICBM" content="35.88999533, 14.43971116" />
+      <meta name="keywords" content="single-spa, microfrontends, node, react, PWA" />
+
+      <meta name="geo.region" content="MT" />
+      <meta name="geo.placename" content="Attard" />
+      <meta name="geo.position" content="35.891377;14.443941" />
+      <meta name="ICBM" content="35.891377, 14.443941" />
+
       <meta property="og:type" content="website" />
       <meta property="og:url" content="${siteURL}" />
       <meta property="og:title" content="${title} | ${siteTitle}" />
@@ -96,13 +92,11 @@ export default function render(req:any) {
       <script type="systemjs-importmap">
         {
           "imports": {
-            "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js",
             "@listingslab/root-config": "${rootConfigURL}",
-            "@listingslab/menu": "${menuURL}",
             "@listingslab/shared": "${sharedURL}",
-            "@listingslab/filebrowser": "${filebrowserURL}",
             "@listingslab/article": "${articleURL}",
-            "@listingslab/persona": "${personaURL}",
+            "@listingslab/auth": "${authURL}",
+            "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js",
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
             "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
             "react-redux": "https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.6/react-redux.min.js",
