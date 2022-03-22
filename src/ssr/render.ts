@@ -33,9 +33,9 @@ export default function render(req:any) {
   const themeLight = "#FFF";
   const content = {
     title: "Listingslab Software",
-    excerpt: "All your base are belong to us",
+    excerpt: "All your base are belong to us was a popular Internet meme based on a badly translated phrase from the opening cutscene of the video game Zero Wing",
     ogImage: `${assetsURL}png/opengraph.png`,
-    image: `${assetsURL}png/listingslab512.png`,
+    image: `${assetsURL}png/allyourbase.png`,
     assetsURL, siteURL, rootConfigURL, sharedURL,personaURL,
     themeLight, siteTitle, siteIcon, version,
   }; 
@@ -133,6 +133,10 @@ export default function render(req:any) {
           </a>
           
           <h1>${siteTitle}</h1>
+
+          <p>
+            ${ excerpt }
+          </p>
           
           <div class="routeList">
             ${ routeList }

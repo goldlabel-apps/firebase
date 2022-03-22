@@ -43,9 +43,8 @@ export const getStyles = (): string => {
               font-size: 1.5rem;
             }
             #ssr .logo {
-              width: 46px;
-              height: 46px;
-              margin: 4px;
+              width: 32px;
+              height: 32px;
               margin-right: 16px;
             }
             #ssr a {
@@ -55,10 +54,11 @@ export const getStyles = (): string => {
               color:#15868f;
             }
             #ssr ul, #ssr li{
-              margin: 0;
+              margin: 0; padding: 0;
+              margin-right: 4px;
               display:inline;
               list-style: none;
-              font-size: 1.2rem;
+              font-size: 1.1rem;
             }
           </style>`;
 };
