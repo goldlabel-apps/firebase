@@ -26,20 +26,21 @@ export default function render(req:any) {
       rootConfigURL = "https://listingslab.com/root-config/listingslab-root-config.js";
       sharedURL = "https://listingslab.com/shared/listingslab-shared.js";
       articleURL = "https://listingslab.com/article/listingslab-article.js";
-      authURL = "https://listingslab.com/listingslab-auth.js";
+      authURL = "https://listingslab.com/auth/listingslab-auth.js";
   } 
   const siteTitle = "Listingslab Software";
   const siteIcon = `${assetsURL}png/listingslab512.png`;
   const themeLight = "#FFF";
   const content = {
     title: "Listingslab Software",
-    excerpt: "GitHub, Linkedin, Facebook, YouTube",
+    excerpt: "See us socially",
     ogImage: `${assetsURL}png/opengraph.png`,
     image: `${assetsURL}png/listingslab512.png`,
     assetsURL, siteURL, rootConfigURL, 
     themeLight, siteTitle, siteIcon,
     sharedURL,
     version,
+
   }; 
 
   routeList = getRouteList(req, env);
@@ -85,7 +86,7 @@ export default function render(req:any) {
       <meta name="importmap-type" content="systemjs-importmap" />
       <link rel="manifest" href="${assetsURL}manifest.json">
       <link rel="icon" href="${assetsURL}favicon.ico" />
-      <link rel="apple-touch-icon" href="${assetsURL}png/logo512.png" />
+      <link rel="apple-touch-icon" href="${assetsURL}png/listingslab512.png" />
 
       ${ getStyles() }
 
@@ -124,16 +125,21 @@ export default function render(req:any) {
           ${title}
         </a>
       </noscript>
-
-      <div id="ssr">
-        <a href="https://listingslab.com">
-          <img class="logo" src="${assetsURL}png/listingslab32.png" align="left" />
-        </a>
-        <a href="https://listingslab.com" title="${siteTitle}">
+      
+      <div class="ssr-wrapper">
+        <div id="ssr" class="ssr-content">
+          <a href="?logoClick">
+            <img 
+            align="left"
+            class="logo" 
+            src="${assetsURL}png/listingslab32.png"  />
+          </a>
+          
           <h1>${siteTitle}</h1>
-        </a>
-        <div class="routeList">
-          ${ routeList }
+          
+          <div class="routeList">
+            ${ routeList }
+          </div>
         </div>
       </div>
 

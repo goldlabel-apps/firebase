@@ -21,33 +21,44 @@ export const getStyles = (): string => {
             a {
               text-decoration: none;
             }
+            .ssr-wrapper {
+              display: flex;
+              align-items: center;
+              justify-content: left;
+              flex-direction: column;
+            }
+            .ssr-content{
+              flex-grow: 1;
+              width: 320px;
+            }
             #ssr{
-              display:flex;
-              width: 355px;
-              margin: auto;
-              padding-top: 8px;
+              margin-top: 32px;
+              padding: 16px;
+              
             }
             #ssr h1 {
-              font-size: 0.90rem;
+              margin: 0;
+              color: #15868f;
               font-weight: normal;
+              font-size: 1.5rem;
             }
             #ssr .logo {
-              width: 24px;
-              height: 24px;
-              margin: 8px;
+              width: 46px;
+              height: 46px;
+              margin: 4px;
+              margin-right: 16px;
             }
             #ssr a {
               color: #18a2ad;
             }
+            #ssr a:hover {
+              color:#15868f;
+            }
             #ssr ul, #ssr li{
-              font-size: 0.70rem;
               margin: 0;
               display:inline;
               list-style: none;
-            }
-            
-            #ssr .routeList {
-              padding-top: 8px;
+              font-size: 1.2rem;
             }
           </style>`;
 };

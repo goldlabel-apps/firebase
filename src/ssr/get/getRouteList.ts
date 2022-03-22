@@ -10,7 +10,7 @@ export const getRouteList = (req:unknown, env:string): string => {
   }
   const mdArr = [
     {
-      title: "Work",
+      title: "Work?",
       excerpt: "please forgive me.",
       icon: "markdown",
       url: baseURL + "/work",
@@ -18,7 +18,7 @@ export const getRouteList = (req:unknown, env:string): string => {
       image: "https://lisitngslab.com/jpg/defaultSq.jpg",
     },
     {
-      title: "Life",
+      title: "Life?",
       excerpt: "young padwan.",
       icon: "markdown",
       url: baseURL + "/life",
@@ -26,7 +26,7 @@ export const getRouteList = (req:unknown, env:string): string => {
       image: "https://lisitngslab.com/jpg/defaultSq.jpg",
     },
     {
-      title: "Balance",
+      title: "Balance.",
       excerpt: "young padwan.",
       icon: "markdown",
       url: baseURL + "/balance",
