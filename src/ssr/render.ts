@@ -9,7 +9,7 @@ export default function render(req:any) {
   
   const env = getEnv(req);
   const { version } = pJSON;
-  let assetsURL, routeList, siteURL, rootConfigURL, sharedURL, articleURL, authURL;
+  let assetsURL, routeList, siteURL, rootConfigURL, sharedURL, articleURL, personaURL;
 
   switch( env ) {
     case "LOCAL":
@@ -18,29 +18,26 @@ export default function render(req:any) {
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       sharedURL = "http://localhost:1945/listingslab-shared.js";
       articleURL = "http://localhost:1977/listingslab-article.js";
-      authURL = "http://localhost:4433/listingslab-auth.js";
+      personaURL = "http://localhost:1975/listingslab-persona.js";
       break;
     default:
       siteURL = "https://listingslab.com";
       assetsURL = "https://listingslab.com/";
-      rootConfigURL = "https://listingslab.com/root-config/listingslab-root-config.js";
-      sharedURL = "https://listingslab.com/shared/listingslab-shared.js";
-      articleURL = "https://listingslab.com/article/listingslab-article.js";
-      authURL = "https://listingslab.com/auth/listingslab-auth.js";
+      rootConfigURL = "https://listingslab.com/microfrontends/root-config/listingslab-root-config.js";
+      sharedURL = "https://listingslab.com/microfrontends/shared/listingslab-shared.js";
+      articleURL = "https://listingslab.com/microfrontends/article/listingslab-article.js";
+      personaURL = "https://listingslab.com/microfrontends/persona/listingslab-persona.js";
   } 
   const siteTitle = "Listingslab Software";
   const siteIcon = `${assetsURL}png/listingslab512.png`;
   const themeLight = "#FFF";
   const content = {
     title: "Listingslab Software",
-    excerpt: "See us socially",
+    excerpt: "All your base are belong to us",
     ogImage: `${assetsURL}png/opengraph.png`,
     image: `${assetsURL}png/listingslab512.png`,
-    assetsURL, siteURL, rootConfigURL, 
-    themeLight, siteTitle, siteIcon,
-    sharedURL,
-    version,
-
+    assetsURL, siteURL, rootConfigURL, sharedURL,personaURL,
+    themeLight, siteTitle, siteIcon, version,
   }; 
 
   routeList = getRouteList(req, env);
@@ -96,7 +93,7 @@ export default function render(req:any) {
             "@listingslab/root-config": "${rootConfigURL}",
             "@listingslab/shared": "${sharedURL}",
             "@listingslab/article": "${articleURL}",
-            "@listingslab/auth": "${authURL}",
+            "@listingslab/persona": "${personaURL}",
             "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js",
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
             "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
