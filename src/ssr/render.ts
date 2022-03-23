@@ -7,9 +7,10 @@ import { getStyles } from "./get/getStyles";
 
 export default function render(req:any) { 
   
+  let siteURL, assetsURL, routeList, rootConfigURL, sharedURL, articleURL, personaURL;
   const env = getEnv(req);
   const { version } = pJSON;
-  let assetsURL, routeList, siteURL, rootConfigURL, sharedURL, articleURL, personaURL;
+  routeList = getRouteList(req, env);
 
   switch( env ) {
     case "LOCAL":
@@ -40,7 +41,7 @@ export default function render(req:any) {
     themeLight, siteTitle, siteIcon, version,
   }; 
 
-  routeList = getRouteList(req, env);
+  
   const {title, excerpt, ogImage } = content;
 
   return `<!DOCTYPE html>
@@ -131,16 +132,24 @@ export default function render(req:any) {
             class="logo" 
             src="${assetsURL}png/listingslab32.png"  />
           </a>
-          
-          <h1>${siteTitle}</h1>
 
-          <p>
-            ${ excerpt }
-          </p>
-          
           <div class="routeList">
             ${ routeList }
           </div>
+          
+          <h1>${siteTitle}</h1>
+
+          <p><i>
+            ${ excerpt }
+          </i></p>
+          <h3><a href="${siteURL}/security">Security</a></h3>
+          
+          <p>Google Firebase provides all our secure backend services, 
+          It can use federated providers like Google, Facebook and Twitter,
+           &amp; MicroSoft</p>
+
+          <h3><a href="${siteURL}/privacy">Privacy</a></h3>
+          <p>We respect your privacy. Please respect ours.</p>
         </div>
       </div>
 

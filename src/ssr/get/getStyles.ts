@@ -12,8 +12,11 @@ export const getStyles = (): string => {
                 padding: 0;
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
             }
-            h1, h2, h3, h4, h5, h6 {
+            h1, h2 {
               font-weight: lighter;
+            }
+            h3 {
+              font-weight: normal;
             }
             ul, li {
               list-style: none;
@@ -29,7 +32,8 @@ export const getStyles = (): string => {
             }
             .ssr-content{
               flex-grow: 1;
-              width: 320px;
+              min-width: 320px;
+              max-width: 600px;
             }
             #ssr{
               margin-top: 32px;
@@ -38,17 +42,15 @@ export const getStyles = (): string => {
             }
             #ssr h1 {
               margin: 0;
-              color: #15868f;
-              font-weight: normal;
               font-size: 1.5rem;
             }
             #ssr .logo {
-              width: 32px;
-              height: 32px;
+              width: 50px;
+              height: 50px;
               margin-right: 16px;
             }
             #ssr a {
-              color: #18a2ad;
+              color: #164346;
             }
             #ssr a:hover {
               color:#15868f;
