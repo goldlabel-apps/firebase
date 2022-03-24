@@ -99,6 +99,7 @@ export default function render(req:any) {
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
             "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
             "react-redux": "https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.6/react-redux.min.js",
+            "@reduxjs/toolkit": "https://cdn.jsdelivr.net/npm/@reduxjs/toolkit@1.8.0/dist/index.min.js",
             "react-draggable": "https://cdn.jsdelivr.net/npm/react-draggable@4.4.4/build/cjs/cjs.min.js",
             "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.3/gsap.min.js",
             "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js"
