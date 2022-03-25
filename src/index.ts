@@ -1,11 +1,11 @@
-// import pJSON from "../package.json";
+import pJSON from "../package.json";
 import * as functions from "firebase-functions";
 import express from "express";
 import cors from "cors";
 import render from "./ssr/render";
 // import {endpointRouter} from "./api/endpointRouter";
 
-// console.warn(pJSON.name + " vs " + pJSON.version);
+console.warn(pJSON.name + " vs " + pJSON.version);
 
 const SSR = express();
 SSR.use(cors({origin: true}));

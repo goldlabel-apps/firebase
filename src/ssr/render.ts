@@ -41,7 +41,6 @@ export default function render(req:any) {
     themeLight, siteTitle, siteIcon, version,
   }; 
 
-  
   const {title, excerpt, ogImage } = content;
 
   return `<!DOCTYPE html>
