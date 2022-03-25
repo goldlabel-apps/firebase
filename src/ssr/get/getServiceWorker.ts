@@ -3,7 +3,7 @@ export const getServiceWorker = (req:unknown): string => {
   const env = getEnv(req);
   if (env === "LOCAL") return "";
   const silence = true;
-  if (silence) return "";
+  if (silence) return "LLserviceWorker";
   return `<script>
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {

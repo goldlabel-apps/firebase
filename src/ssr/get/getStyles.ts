@@ -36,7 +36,7 @@ export const getStyles = (): string => {
               max-width: 600px;
             }
             #ssr{
-              margin-top: 32px;
+              margin-top: 150px;
               padding: 16px;
               
             }
@@ -45,9 +45,10 @@ export const getStyles = (): string => {
               font-size: 1.5rem;
             }
             #ssr .logo {
-              width: 50px;
-              height: 50px;
-              margin-right: 16px;
+              width: 42px;
+              height: 42px;
+              margin-right: 32px;
+              margin-top: 4px;
             }
             #ssr a {
               color: #164346;

@@ -32,13 +32,13 @@ export default function render(req:any) {
   const siteTitle = "Listingslab Software";
   const siteIcon = `${assetsURL}png/listingslab512.png`;
   const themeLight = "#FFF";
+
   const content = {
     title: "Listingslab Software",
-    excerpt: "All your base are belong to us was a popular Internet meme based on a badly translated phrase from the opening cutscene of the video game Zero Wing",
+    excerpt: "Progressive Web Apps can legitimately be called Mobile Apps",
     ogImage: `${assetsURL}png/opengraph.png`,
     image: `${assetsURL}png/allyourbase.png`,
-    assetsURL, siteURL, rootConfigURL, sharedURL,personaURL,
-    themeLight, siteTitle, siteIcon, version,
+    assetsURL, siteURL, themeLight, siteTitle, siteIcon, version,
   }; 
 
   const {title, excerpt, ogImage } = content;
@@ -114,13 +114,28 @@ export default function render(req:any) {
       <script>var ssr = ${JSON.stringify(content, null, 2)};</script>
       
     </head>
-    <body>
     
-      <noscript>You need a LOT of JavaScript to use this App
-        <a href="https://listingslab.com/javascript"
+    <body>
+      
+      <noscript>You need a LOT of JavaScript to use this Progressive Web App
+        <h4>Progressive Web App Features</h4>
+        <ul>
+          <li>Barrier to creation is very low</li>
+          <li>Not in any App Store</li>
+          <li>Server Side Rendering allows PWA to compete at SEO</li>
+        </ul>
+        <h3><a href="${siteURL}/security">Security</a></h3>
+          
+          <p>Google Firebase provides all our secure backend services, 
+          It can use federated providers like Google, Facebook and Twitter,
+           &amp; MicroSoft</p>
+
+        <h3><a href="${siteURL}/privacy">Privacy</a></h3>
+          <p>We respect your privacy. Please respect ours.</p>
+        <a href="${siteURL}/pwa"
           target="_self"
           title="${excerpt}">
-          ${title}
+          Learn about PWA
         </a>
       </noscript>
       
@@ -132,29 +147,17 @@ export default function render(req:any) {
             class="logo" 
             src="${assetsURL}png/listingslab32.png"  />
           </a>
-
+          <h1>${siteTitle}</h1>
           <div class="routeList">
             ${ routeList }
           </div>
-          
-          <h1>${siteTitle}</h1>
-
           <p><i>
             ${ excerpt }
           </i></p>
-          <h3><a href="${siteURL}/security">Security</a></h3>
-          
-          <p>Google Firebase provides all our secure backend services, 
-          It can use federated providers like Google, Facebook and Twitter,
-           &amp; MicroSoft</p>
-
-          <h3><a href="${siteURL}/privacy">Privacy</a></h3>
-          <p>We respect your privacy. Please respect ours.</p>
         </div>
       </div>
 
       <script>
-        // github.com/listingslab-software/root-config
         System.import('@listingslab/root-config');
       </script>
 
