@@ -15,7 +15,7 @@ export default function render(req:any) {
   switch( env ) {
     case "LOCAL":
       siteURL = "http://localhost:5001/listingslab-app/us-central1/SSR";
-      assetsURL = "http://localhost:2022/";
+      assetsURL = "http://localhost/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       sharedURL = "http://localhost:1945/listingslab-shared.js";
       articleURL = "http://localhost:1977/listingslab-article.js";
