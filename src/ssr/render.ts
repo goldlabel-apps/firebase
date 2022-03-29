@@ -7,7 +7,7 @@ import { getStyles } from "./get/getStyles";
 
 export default function render(req:any) { 
   
-  let siteURL, assetsURL, routeList, rootConfigURL, sharedURL, articleURL, personaURL;
+  let siteURL, assetsURL, routeList, rootConfigURL, sharedURL, articleURL, personaURL, viewerURL;
   const env = getEnv(req);
   const { version } = pJSON;
   routeList = getRouteList(req, env);
@@ -20,6 +20,7 @@ export default function render(req:any) {
       sharedURL = "http://localhost:1945/listingslab-shared.js";
       articleURL = "http://localhost:1977/listingslab-article.js";
       personaURL = "http://localhost:1975/listingslab-persona.js";
+      viewerURL = "http://localhost:1942/listingslab-viewer.js";
       break;
     default:
       siteURL = "https://listingslab.com";
@@ -28,6 +29,7 @@ export default function render(req:any) {
       sharedURL = "https://listingslab.com/microfrontends/shared/listingslab-shared.js";
       articleURL = "https://listingslab.com/microfrontends/article/listingslab-article.js";
       personaURL = "https://listingslab.com/microfrontends/persona/listingslab-persona.js";
+      viewerURL = "https://listingslab.com/microfrontends/viewer/listingslab-viewer.js";
   } 
   const siteTitle = "Listingslab Software";
   const siteIcon = `${assetsURL}png/listingslab512.png`;
@@ -96,6 +98,8 @@ export default function render(req:any) {
             "@listingslab/shared": "${sharedURL}",
             "@listingslab/article": "${articleURL}",
             "@listingslab/persona": "${personaURL}",
+            "@listingslab/viewer": "${viewerURL}",
+            
             "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js",
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
             "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
