@@ -1,4 +1,6 @@
+
 src/serviceAccountKey.ts
+dist
 
 # Compiled JavaScript files
 lib

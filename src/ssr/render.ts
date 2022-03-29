@@ -15,7 +15,7 @@ export default function render(req:any) {
   switch( env ) {
     case "LOCAL":
       siteURL = "http://localhost:5001/listingslab-app/us-central1/SSR";
-      assetsURL = "http://localhost/";
+      assetsURL = "http://localhost:5001/listingslab-app/us-central1/ASSETS/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       sharedURL = "http://localhost:1945/listingslab-shared.js";
       articleURL = "http://localhost:1977/listingslab-article.js";
@@ -80,6 +80,8 @@ export default function render(req:any) {
       <meta name="msapplication-TileColor" content="${themeLight}">
       <meta name="msapplication-TileImage" content="${assetsURL}png/ms-icon-144x144Dark.png">
 
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+      
       <meta name="importmap-type" content="systemjs-importmap" />
       <link rel="manifest" href="${assetsURL}manifest.json">
       <link rel="icon" href="${assetsURL}favicon.ico" />
