@@ -39,7 +39,7 @@ export default function render(req:any) {
     title: "Listingslab Software",
     excerpt: "Progressive Web Apps can legitimately be called Mobile Apps",
     ogImage: `${assetsURL}png/opengraph.png`,
-    image: `${assetsURL}png/allyourbase.png`,
+    image: `${assetsURL}png/opengraphs.png`,
     assetsURL, siteURL, themeLight, siteTitle, siteIcon, version,
   }; 
 
@@ -81,13 +81,13 @@ export default function render(req:any) {
       <meta name="HandheldFriendly" content="true" />
       <meta name="msapplication-TileColor" content="${themeLight}">
       <meta name="msapplication-TileImage" content="${assetsURL}png/ms-icon-144x144Dark.png">
-
-      <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
       
       <meta name="importmap-type" content="systemjs-importmap" />
       <link rel="manifest" href="${assetsURL}manifest.json">
       <link rel="icon" href="${assetsURL}favicon.ico" />
       <link rel="apple-touch-icon" href="${assetsURL}png/listingslab512.png" />
+
+      <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
 
       ${ getStyles() }
 
