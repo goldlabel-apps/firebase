@@ -7,7 +7,7 @@ import { getStyles } from "./get/getStyles";
 
 export default function render(req:any) { 
   
-  let siteURL, assetsURL, routeList, rootConfigURL, sharedURL, articleURL, personaURL, viewerURL, flashURL;
+  let siteURL, assetsURL, routeList, rootConfigURL, sharedURL, articleURL, flashURL;
   const env = getEnv(req);
   const { version } = pJSON;
   routeList = getRouteList(req, env);
@@ -19,8 +19,6 @@ export default function render(req:any) {
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       sharedURL = "http://localhost:1945/listingslab-shared.js";
       articleURL = "http://localhost:1977/listingslab-article.js";
-      personaURL = "http://localhost:1975/listingslab-persona.js";
-      viewerURL = "http://localhost:1942/listingslab-viewer.js";
       flashURL = "http://localhost:1999/listingslab-flash.js";
       break;
     default:
@@ -29,8 +27,6 @@ export default function render(req:any) {
       rootConfigURL = "https://listingslab.com/microfrontends/root-config/listingslab-root-config.js";
       sharedURL = "https://listingslab.com/microfrontends/shared/listingslab-shared.js";
       articleURL = "https://listingslab.com/microfrontends/article/listingslab-article.js";
-      personaURL = "https://listingslab.com/microfrontends/persona/listingslab-persona.js";
-      viewerURL = "https://listingslab.com/microfrontends/viewer/listingslab-viewer.js";
       flashURL = "https://listingslab.com/microfrontends/flash/listingslab-flash.js";
   } 
   const siteTitle = "Listingslab Software";
@@ -99,10 +95,7 @@ export default function render(req:any) {
             "@listingslab/root-config": "${rootConfigURL}",
             "@listingslab/shared": "${sharedURL}",
             "@listingslab/article": "${articleURL}",
-            "@listingslab/persona": "${personaURL}",
-            "@listingslab/viewer": "${viewerURL}",
             "@listingslab/flash": "${flashURL}",
-            
             "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js",
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
             "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
@@ -127,12 +120,11 @@ export default function render(req:any) {
     <body>
       
       <noscript>You need a LOT of JavaScript to use this Progressive Web App
-        <h2>Progressive Web App Features</h2>
-        <ul>
-          <li>Barrier to creation is very low</li>
-          <li>Not in any App Store</li>
-          <li>Server Side Rendering allows PWA to compete at SEO</li>
-        </ul>
+        
+        <h3><a href="${siteURL}/security">Security</a></h3> 
+              <p>Google Firebase provides all our secure backend services, 
+              It can use federated providers like Google, Facebook and Twitter,
+                &amp; MicroSoft</p>
         
       </noscript>
       
@@ -149,22 +141,32 @@ export default function render(req:any) {
             ${ routeList }
           </div>
           
-          <div>
-              <h3><a href="${siteURL}/security">Security</a></h3> 
-              <p>Google Firebase provides all our secure backend services, 
-              It can use federated providers like Google, Facebook and Twitter,
-                &amp; MicroSoft</p>
-              <h3><a href="${siteURL}/work">What we do</a></h3>
-              <p>${ excerpt }</p>
+          <div class="flex">
+
+            
+
+            <div class="box">
+              <h3>Features</h3>
+              <ul>
+                <li>Low barrier to creation</li>
+                <li>No need for App Stores</li>
+                <li>Server Side Rendering enables cometitive SEO</li>
+              </ul>
               <a href="${siteURL}/pwa"
+                class="btn"
                 target="_self"
                 title="${excerpt}">
-                Learn about PWA
+                more
               </a>
+            </div>
+
+            <div class="box">
+              <h3><a href="${siteURL}/work">What we do</a></h3>
+              <p>${ excerpt }</p>
               <h3><a href="${siteURL}/privacy">Privacy</a></h3>
               <p>We respect your privacy. Please respect ours.</p>
-
-
+            </div>
+      
           </div>
           
         </div>

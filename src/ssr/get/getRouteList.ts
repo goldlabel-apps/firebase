@@ -35,7 +35,7 @@ export const getRouteList = (req:unknown, env:string): string => {
     },
   ];
 
-  let mdHtml = "<ul>";
+  let mdHtml = "<nav><ul>";
   for (let i=0; i < mdArr.length; i++) {
     mdHtml += "<li>";
     mdHtml += "<a href='" + mdArr[i].url + "'>";
@@ -43,7 +43,7 @@ export const getRouteList = (req:unknown, env:string): string => {
     mdHtml += "</a>&nbsp;";
     mdHtml += "</li>";
   }
-  mdHtml += "</ul>";
+  mdHtml += "</ul></nav>";
 
   return mdHtml;
 };

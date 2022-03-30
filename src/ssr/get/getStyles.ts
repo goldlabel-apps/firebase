@@ -7,19 +7,14 @@ export const getStyles = (): string => {
             }
             body {
                 background-image: linear-gradient(#fff, #edf6f5);
+                color: #808080;
                 border: 0;
                 margin: 0;
                 padding: 0;
                 font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
             }
-            h1, h2 {
+            h1, h2, h3, h4 {
               font-weight: lighter;
-            }
-            h3 {
-              font-weight: normal;
-            }
-            ul, li {
-              list-style: none;
             }
             a {
               text-decoration: none;
@@ -60,12 +55,30 @@ export const getStyles = (): string => {
               // color:#ccc;
               // font-size: 1.1rem;
             }
-            #ssr ul, #ssr li{
+            #ssr nav ul, #ssr nav li{
               margin: 0; padding: 0;
               margin-right: 4px;
               display:inline;
               list-style: none;
               font-size: 1.1rem;
             }
+
+            #ssr .btn {
+              background: white;
+              padding: 6px;
+              border-radius: 4px;
+              border: 1px solid #808080;
+              font-size: 1rem;
+            }
+
+            #ssr .btn:hover {
+              background: #eee;
+            }
+
+            #ssr .flex {
+              display: flex;
+            }
+
+
           </style>`;
 };
