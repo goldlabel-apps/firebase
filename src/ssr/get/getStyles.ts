@@ -56,6 +56,10 @@ export const getStyles = (): string => {
             #ssr a:hover {
               color:#15868f;
             }
+            #ssr .excerpt {
+              // color:#ccc;
+              // font-size: 1.1rem;
+            }
             #ssr ul, #ssr li{
               margin: 0; padding: 0;
               margin-right: 4px;

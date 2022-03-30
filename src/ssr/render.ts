@@ -7,7 +7,7 @@ import { getStyles } from "./get/getStyles";
 
 export default function render(req:any) { 
   
-  let siteURL, assetsURL, routeList, rootConfigURL, sharedURL, articleURL, personaURL, viewerURL;
+  let siteURL, assetsURL, routeList, rootConfigURL, sharedURL, articleURL, personaURL, viewerURL, flashURL;
   const env = getEnv(req);
   const { version } = pJSON;
   routeList = getRouteList(req, env);
@@ -21,6 +21,7 @@ export default function render(req:any) {
       articleURL = "http://localhost:1977/listingslab-article.js";
       personaURL = "http://localhost:1975/listingslab-persona.js";
       viewerURL = "http://localhost:1942/listingslab-viewer.js";
+      flashURL = "http://localhost:1999/listingslab-flash.js";
       break;
     default:
       siteURL = "https://listingslab.com";
@@ -30,6 +31,7 @@ export default function render(req:any) {
       articleURL = "https://listingslab.com/microfrontends/article/listingslab-article.js";
       personaURL = "https://listingslab.com/microfrontends/persona/listingslab-persona.js";
       viewerURL = "https://listingslab.com/microfrontends/viewer/listingslab-viewer.js";
+      flashURL = "https://listingslab.com/microfrontends/flash/listingslab-flash.js";
   } 
   const siteTitle = "Listingslab Software";
   const siteIcon = `${assetsURL}png/listingslab512.png`;
@@ -37,7 +39,7 @@ export default function render(req:any) {
 
   const content = {
     title: "Listingslab Software",
-    excerpt: "Progressive Web Apps can legitimately be called Mobile Apps",
+    excerpt: "We make Progressive Web Apps which can legitimately be called Mobile Apps",
     ogImage: `${assetsURL}png/opengraph.png`,
     image: `${assetsURL}png/opengraphs.png`,
     assetsURL, siteURL, themeLight, siteTitle, siteIcon, version,
@@ -99,6 +101,7 @@ export default function render(req:any) {
             "@listingslab/article": "${articleURL}",
             "@listingslab/persona": "${personaURL}",
             "@listingslab/viewer": "${viewerURL}",
+            "@listingslab/flash": "${flashURL}",
             
             "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js",
             "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
@@ -117,37 +120,25 @@ export default function render(req:any) {
       <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>  
 
-      <script>var ssr = ${JSON.stringify(content, null, 2)};</script>
+      <script>var ssr = ${ JSON.stringify(content, null, 2 )};</script>
       
     </head>
     
     <body>
       
       <noscript>You need a LOT of JavaScript to use this Progressive Web App
-        <h4>Progressive Web App Features</h4>
+        <h2>Progressive Web App Features</h2>
         <ul>
           <li>Barrier to creation is very low</li>
           <li>Not in any App Store</li>
           <li>Server Side Rendering allows PWA to compete at SEO</li>
         </ul>
-        <h3><a href="${siteURL}/security">Security</a></h3>
-          
-          <p>Google Firebase provides all our secure backend services, 
-          It can use federated providers like Google, Facebook and Twitter,
-           &amp; MicroSoft</p>
-
-        <h3><a href="${siteURL}/privacy">Privacy</a></h3>
-          <p>We respect your privacy. Please respect ours.</p>
-        <a href="${siteURL}/pwa"
-          target="_self"
-          title="${excerpt}">
-          Learn about PWA
-        </a>
+        
       </noscript>
       
       <div class="ssr-wrapper">
         <div id="ssr" class="ssr-content">
-          <a href="?logoClick">
+          <a href="?ssr-logo-click">
             <img 
             align="left"
             class="logo" 
@@ -157,9 +148,25 @@ export default function render(req:any) {
           <div class="routeList">
             ${ routeList }
           </div>
-          <p><i>
-            ${ excerpt }
-          </i></p>
+          
+          <div>
+              <h3><a href="${siteURL}/security">Security</a></h3> 
+              <p>Google Firebase provides all our secure backend services, 
+              It can use federated providers like Google, Facebook and Twitter,
+                &amp; MicroSoft</p>
+              <h3><a href="${siteURL}/work">What we do</a></h3>
+              <p>${ excerpt }</p>
+              <a href="${siteURL}/pwa"
+                target="_self"
+                title="${excerpt}">
+                Learn about PWA
+              </a>
+              <h3><a href="${siteURL}/privacy">Privacy</a></h3>
+              <p>We respect your privacy. Please respect ours.</p>
+
+
+          </div>
+          
         </div>
       </div>
 
