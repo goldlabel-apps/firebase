@@ -1,6 +1,6 @@
 {
   "name": "@listingslab/firebase",
-  "version": "19.6.6",
+  "version": "19.6.7",
   "description": "Firebase Serverless Isomorphic Node functions and more",
   "main": "lib/src/index.js",
   "scripts": {
