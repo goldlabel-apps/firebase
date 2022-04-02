@@ -27,13 +27,11 @@ export const getStyles = (): string => {
             }
             .ssr-content{
               flex-grow: 1;
-              min-width: 320px;
-              max-width: 600px;
+              width: 345px;
             }
             #ssr{
-              margin-top: 150px;
+              margin-top: 100px;
               padding: 16px;
-              
             }
             #ssr h1 {
               margin: 0;
