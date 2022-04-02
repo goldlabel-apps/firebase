@@ -30,7 +30,7 @@ export const getStyles = (): string => {
               width: 345px;
             }
             #ssr{
-              margin-top: 100px;
+              margin-top: 0px;
               padding: 16px;
             }
             #ssr h1 {
@@ -40,27 +40,22 @@ export const getStyles = (): string => {
             #ssr .logo {
               width: 42px;
               height: 42px;
-              margin-right: 32px;
+              margin-right: 16px;
               margin-top: 4px;
             }
             #ssr a {
-              color: #164346;
+              color: #898989;
             }
             #ssr a:hover {
               color:#15868f;
-            }
-            #ssr .excerpt {
-              // color:#ccc;
-              // font-size: 1.1rem;
             }
             #ssr nav ul, #ssr nav li{
               margin: 0; padding: 0;
               margin-right: 4px;
               display:inline;
               list-style: none;
-              font-size: 1.1rem;
+              font-size: 0.8rem;
             }
-
             #ssr .btn {
               background: white;
               padding: 6px;
@@ -68,15 +63,11 @@ export const getStyles = (): string => {
               border: 1px solid #808080;
               font-size: 1rem;
             }
-
             #ssr .btn:hover {
               background: #eee;
             }
-
             #ssr .flex {
               display: flex;
             }
-
-
           </style>`;
 };

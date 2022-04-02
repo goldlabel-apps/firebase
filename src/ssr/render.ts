@@ -144,39 +144,18 @@ export default function render(req:any) {
           <div class="none">
 
             <div class="box">
-              <h3>Features</h3>
+              <h3><a href="${siteURL}/work">What we do</a></h3>
+              <p>${ excerpt }</p>
+
               <ul>
                 <li>Low barrier to creation</li>
                 <li>No need for App Stores</li>
                 <li>Server Side Rendering enables competitive SEO</li>
               </ul>
-
-              <a href="${siteURL}/pwa"
-                class="btn"
-                target="_self"
-                title="${excerpt}">
-                PWA
-              </a>
-
-            </div>
-
-            <div class="box">
-              <h3><a href="${siteURL}/work">What we do</a></h3>
-              <p>${ excerpt }</p>
-              <a href="${siteURL}/work"
-                class="btn"
-                target="_self"
-                title="${excerpt}">
-                Work
-              </a>
+              
               <h3><a href="${siteURL}/privacy">Privacy</a></h3>
               <p>We respect your privacy. Please respect ours.</p>
-              <a href="${siteURL}/privacy"
-                class="btn"
-                target="_self"
-                title="${excerpt}">
-                Privacy
-              </a>
+              
             </div>
       
           </div>
