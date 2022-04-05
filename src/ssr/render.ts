@@ -7,14 +7,15 @@ import { getStyles } from "./get/getStyles";
 
 export default function render(req:any) { 
   
-  let siteURL, assetsURL, routeList, rootConfigURL, sharedURL, articleURL, flashURL;
+  let baseURL, assetsURL, routeList, rootConfigURL, sharedURL, articleURL, flashURL, pathnamePrefix;
   const env = getEnv(req);
   const { version } = pJSON;
   routeList = getRouteList(req, env);
 
   switch( env ) {
     case "LOCAL":
-      siteURL = "http://localhost:5001/listingslab-app/us-central1/SSR";
+      baseURL = "http://localhost:5001/listingslab-app/us-central1/SSR/";
+      pathnamePrefix = "/listingslab-app/us-central1/SSR";
       assetsURL = "http://localhost:5001/listingslab-app/us-central1/ASSETS/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       sharedURL = "http://localhost:1945/listingslab-shared.js";
@@ -22,7 +23,8 @@ export default function render(req:any) {
       flashURL = "http://localhost:1999/listingslab-flash.js";
       break;
     default:
-      siteURL = "https://listingslab.com";
+      baseURL = "https://listingslab.com";
+      pathnamePrefix = "";
       assetsURL = "https://listingslab.com/";
       rootConfigURL = "https://listingslab.com/microfrontends/root-config/listingslab-root-config.js";
       sharedURL = "https://listingslab.com/microfrontends/shared/listingslab-shared.js";
@@ -38,7 +40,7 @@ export default function render(req:any) {
     excerpt: "We make Progressive Web Apps which can legitimately be called Mobile Apps",
     ogImage: `${assetsURL}png/opengraph.png`,
     image: `${assetsURL}png/opengraphs.png`,
-    assetsURL, siteURL, themeLight, siteTitle, siteIcon, version,
+    pathnamePrefix, assetsURL, baseURL, themeLight, siteTitle, siteIcon, version,
   }; 
 
   const {title, excerpt, ogImage } = content;
@@ -63,7 +65,7 @@ export default function render(req:any) {
       <meta name="ICBM" content="35.891377, 14.443941" />
 
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="${siteURL}" />
+      <meta property="og:url" content="${baseURL}" />
       <meta property="og:title" content="${title} | ${siteTitle}" />
       <meta property="og:description" content="${excerpt}" />
       <meta property="og:image" content="${ogImage}" />
@@ -121,7 +123,7 @@ export default function render(req:any) {
       
       <noscript>You need a LOT of JavaScript to use this Progressive Web App
         
-        <h3><a href="${siteURL}/security">Security</a></h3> 
+        <h3><a href="${baseURL}/security">Security</a></h3> 
               <p>Google Firebase provides all our secure backend services, 
               It can use federated providers like Google, Facebook and Twitter,
                 &amp; MicroSoft</p>
@@ -141,24 +143,18 @@ export default function render(req:any) {
             ${ routeList }
           </div>
           
-          <div class="none">
-
+          
             <div class="box">
-              <h3><a href="${siteURL}/work">What we do</a></h3>
+              <h3><a href="${baseURL}work">Work</a></h3>
               <p>${ excerpt }</p>
-
               <ul>
                 <li>Low barrier to creation</li>
                 <li>No need for App Stores</li>
                 <li>Server Side Rendering enables competitive SEO</li>
               </ul>
-              
-              <h3><a href="${siteURL}/privacy">Privacy</a></h3>
+              <h3><a href="${baseURL}privacy">Privacy</a></h3>
               <p>We respect your privacy. Please respect ours.</p>
-              
             </div>
-      
-          </div>
           
         </div>
       </div>
