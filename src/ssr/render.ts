@@ -7,7 +7,7 @@ import { getStyles } from "./get/getStyles";
 
 export default function render(req:any) { 
   
-  let baseURL, assetsURL, routeList, rootConfigURL, sharedURL, articleURL, flashURL, pathnamePrefix;
+  let baseURL, assetsURL, routeList, rootConfigURL, sharedURL, adminURL, articleURL, flashURL, pathnamePrefix;
   const env = getEnv(req);
   const { version } = pJSON;
   routeList = getRouteList(req, env);
@@ -19,6 +19,7 @@ export default function render(req:any) {
       assetsURL = "http://localhost:5001/listingslab-app/us-central1/ASSETS/";
       rootConfigURL = "http://localhost:9000/listingslab-root-config.js";
       sharedURL = "http://localhost:1945/listingslab-shared.js";
+      adminURL = "http://localhost:1066/listingslab-admin.js";
       articleURL = "http://localhost:1977/listingslab-article.js";
       flashURL = "http://localhost:1999/listingslab-flash.js";
       break;
@@ -28,6 +29,7 @@ export default function render(req:any) {
       assetsURL = "https://listingslab.com/";
       rootConfigURL = "https://listingslab.com/microfrontends/root-config/listingslab-root-config.js";
       sharedURL = "https://listingslab.com/microfrontends/shared/listingslab-shared.js";
+      adminURL = "https://listingslab.com/microfrontends/admin/listingslab-admin.js";
       articleURL = "https://listingslab.com/microfrontends/article/listingslab-article.js";
       flashURL = "https://listingslab.com/microfrontends/flash/listingslab-flash.js";
   } 
@@ -96,6 +98,7 @@ export default function render(req:any) {
           "imports": {
             "@listingslab/root-config": "${rootConfigURL}",
             "@listingslab/shared": "${sharedURL}",
+            "@listingslab/admin": "${adminURL}",
             "@listingslab/article": "${articleURL}",
             "@listingslab/flash": "${flashURL}",
             "@mui/material":"https://unpkg.com/@mui/material@5.4.3/umd/material-ui.production.min.js",
