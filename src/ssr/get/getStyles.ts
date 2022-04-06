@@ -19,20 +19,27 @@ export const getStyles = (): string => {
             a {
               text-decoration: none;
             }
-            .ssr-wrapper {
+            #ssr{
+              margin-top: 0px;
+              padding: 16px;
+            }
+            
+            .fallback-off {
+              display: none;
+            }
+
+            .fallback-on {
               display: flex;
               align-items: center;
               justify-content: left;
               flex-direction: column;
             }
+
             .ssr-content{
               flex-grow: 1;
               width: 345px;
             }
-            #ssr{
-              margin-top: 0px;
-              padding: 16px;
-            }
+            
             #ssr h1 {
               margin: 0;
               font-size: 1.5rem;

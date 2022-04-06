@@ -33,12 +33,12 @@ export default function render(req:any) {
       articleURL = "https://listingslab.com/microfrontends/article/listingslab-article.js";
       flashURL = "https://listingslab.com/microfrontends/flash/listingslab-flash.js";
   } 
-  const siteTitle = "Listingslab Software";
+  const siteTitle = "Listingslab";
   const siteIcon = `${assetsURL}png/listingslab512.png`;
   const themeLight = "#FFF";
 
   const content = {
-    title: "Listingslab Software",
+    title: "Progressive Web Apps",
     excerpt: "We make Progressive Web Apps which can legitimately be called Mobile Apps",
     ogImage: `${assetsURL}png/opengraph.png`,
     image: `${assetsURL}png/opengraphs.png`,
@@ -133,7 +133,7 @@ export default function render(req:any) {
         
       </noscript>
       
-      <div class="ssr-wrapper">
+      <div id="fallback" class="fallback-off">
         <div id="ssr" class="ssr-content">
           <a href="?ssr-logo-click">
             <img 
@@ -164,6 +164,13 @@ export default function render(req:any) {
 
       <script>
         System.import('@listingslab/root-config');
+        setTimeout(() => {
+          var el = document.getElementById("fallback");
+          if (el) {
+            el.classList.remove("fallback-off");
+            el.classList.add("fallback-on");
+          }
+        }, 1500);
       </script>
 
     </body>
