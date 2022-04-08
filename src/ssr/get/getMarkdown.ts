@@ -1,5 +1,5 @@
-import axios from "axios";
-export const getMdList = (req:unknown, env:string): string => {
+// import axios from "axios";
+export const getMarkdown = (req:any, env:string): string => {
   let baseURL;
   switch ( env ) {
     case "LOCAL":
@@ -8,17 +8,26 @@ export const getMdList = (req:unknown, env:string): string => {
     default:
       baseURL = "https://listingslab.com";
   }
-  const endpoint = baseURL + "/files.json";
+  // const defaultMarkdown = "/README.md";
+  // baseURL
 
-  axios.get(endpoint)
-      .then((response) => {
-        return "response.data" + response.data.toString();
-      })
-      .catch((error) => {
-        return error;
-      });
+  const { params } = req;
 
-  return "not done yet";
+
+  return `${baseURL}  <pre>${JSON.stringify(params, null, 2)}</pre>`;
+  
+  
+  // const endpoint = baseURL + "/files.json";
+
+  // axios.get(endpoint)
+  //     .then((response) => {
+  //       return "response.data" + response.data.toString();
+  //     })
+  //     .catch((error) => {
+  //       return error;
+  //     });
+
+  // return `${baseURL} not done yet`;
 
   // const mdArr = [
   //   {

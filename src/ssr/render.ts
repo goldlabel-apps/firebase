@@ -2,16 +2,18 @@
 import pJSON from "../../package.json";
 import { getEnv } from "./get/getEnv";
 import { getServiceWorker } from "./get/getServiceWorker";
-import { getRouteList } from "./get/getRouteList";
+import { getNav } from "./get/getNav";
 import { getStyles } from "./get/getStyles";
+import { getRoller } from "./get/getRoller";
 
 export default function render(req:any) { 
   
-  let baseURL, assetsURL, routeList, rootConfigURL, sharedURL, adminURL, articleURL, flashURL, pathnamePrefix;
+
+
+  let baseURL, assetsURL, rootConfigURL, sharedURL, adminURL, articleURL, flashURL, pathnamePrefix;
   const env = getEnv(req);
   const { version } = pJSON;
-  routeList = getRouteList(req, env);
-
+  const roller = getRoller(req,env);
   switch( env ) {
     case "LOCAL":
       baseURL = "http://localhost:5001/listingslab-app/us-central1/SSR/";
@@ -135,42 +137,35 @@ export default function render(req:any) {
       
       <div id="fallback" class="fallback-off">
         <div id="ssr" class="ssr-content">
-          <a href="?ssr-logo-click">
+          
+        <a href="?ssr-logo-click">
             <img 
-            align="left"
-            class="logo" 
-            src="${assetsURL}png/listingslab32.png"  />
+              align="left"
+              class="logo" 
+              src="${assetsURL}png/listingslab32.png"  />
           </a>
+
           <h1>${siteTitle}</h1>
+
           <div class="routeList">
-            ${ routeList }
+            ${ getNav(req, env) }
           </div>
           
+          <pre>${ JSON.stringify(roller, null, 2) }</pre>
           
-            <div class="box">
-              <h3><a href="${baseURL}work">Work</a></h3>
-              <p>${ excerpt }</p>
-              <ul>
-                <li>Low barrier to creation</li>
-                <li>No need for App Stores</li>
-                <li>Server Side Rendering enables competitive SEO</li>
-              </ul>
-              <h3><a href="${baseURL}privacy">Privacy</a></h3>
-              <p>We respect your privacy. Please respect ours.</p>
-            </div>
           
         </div>
       </div>
 
       <script>
-        System.import('@listingslab/root-config');
+        // System.import('@listingslab/root-config');
         setTimeout(() => {
           var el = document.getElementById("fallback");
           if (el) {
             el.classList.remove("fallback-off");
             el.classList.add("fallback-on");
           }
-        }, 1500);
+        }, 10);
       </script>
 
     </body>
