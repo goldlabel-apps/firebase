@@ -32,20 +32,3 @@ ASSETS.get("*", (req:any, res:any) => {
   res.end();
 });
 exports.ASSETS = functions.https.onRequest(ASSETS);
-
-
-/*
-  // res.status(200).send("API");
-  // res.links({
-  //   next: 'http://api.example.com/users?page=2',
-  //   last: 'http://api.example.com/users?page=5'
-  // })
-
-// exports.ASSETS = functions.https.onRequest((req:any, res:any) => {
-  // console.log ("do ASSETS");
-  // res.send("ok");
-  // const serve = serveStatic('files', { index: ['index.html', 'index.htm'] })
-  // res.send(serve);
-// });
-
-*/

@@ -1,5 +1,8 @@
-export const getRoller = (req:any, env:string): any => {
+export const getRoller = (req, env): any => {
   let baseURL;
+  const pathname = req.params[0];
+
+
   switch ( env ) {
     case "LOCAL":
       baseURL = "http://localhost:5001/listingslab-app/us-central1/SSR";
@@ -7,8 +10,10 @@ export const getRoller = (req:any, env:string): any => {
     default:
       baseURL = "https://listingslab.com";
   }
+
   return {
     baseURL,
+    pathname,
     focussed:{
       title: "Focussed content",
     },
