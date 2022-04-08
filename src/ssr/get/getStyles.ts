@@ -1,12 +1,18 @@
 /* eslint max-len: "off" */
 
+const gradientLight = "#DAEFF3";
+const gradientDark = "#6EC1D4";
+// const primary = "#18a3ad";
+// const secondary = "#126a71";
+const mid = "#158891";
+
 export const getStyles = (): string => {
   return `<style>
             html {
               height: 100%;
             }
             body {
-                background-image: linear-gradient(#fff, #edf6f5);
+                background-image: linear-gradient(${gradientLight}, ${gradientDark});
                 color: #808080;
                 border: 0;
                 margin: 0;
@@ -36,8 +42,9 @@ export const getStyles = (): string => {
             }
 
             .ssr-content{
+              
               flex-grow: 1;
-              width: 345px;
+              width: 690px;
             }
             
             #ssr h1 {
@@ -51,7 +58,7 @@ export const getStyles = (): string => {
               margin-top: 4px;
             }
             #ssr a {
-              color: #898989;
+              color: ${mid};
             }
             #ssr a:hover {
               color:#15868f;
@@ -76,5 +83,11 @@ export const getStyles = (): string => {
             #ssr .flex {
               display: flex;
             }
+            #ssr .box {
+              border: 1px solid white;
+              background: rgba(255,255,255,0.25);
+              margin-top: 16px;
+            }
+            
           </style>`;
 };

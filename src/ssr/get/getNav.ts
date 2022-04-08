@@ -1,5 +1,5 @@
 // import axios from "axios";
-export const getRouteList = (req:unknown, env:string): string => {
+export const getNav = (req:unknown, env:string): string => {
   let baseURL;
   switch ( env ) {
     case "LOCAL":
@@ -8,7 +8,7 @@ export const getRouteList = (req:unknown, env:string): string => {
     default:
       baseURL = "https://listingslab.com";
   }
-  const mdArr = [
+  const nav = [
     {
       title: "Work?",
       excerpt: "please forgive me.",
@@ -35,15 +35,15 @@ export const getRouteList = (req:unknown, env:string): string => {
     },
   ];
 
-  let mdHtml = "<nav><ul>";
-  for (let i=0; i < mdArr.length; i++) {
-    mdHtml += "<li>";
-    mdHtml += "<a href='" + mdArr[i].url + "'>";
-    mdHtml += mdArr[i].title;
-    mdHtml += "</a>&nbsp;";
-    mdHtml += "</li>";
+  let html = "<nav><ul>";
+  for (let i=0; i < nav.length; i++) {
+    html += "<li>";
+    html += "<a href='" + nav[i].url + "'>";
+    html += nav[i].title;
+    html += "</a>&nbsp;";
+    html += "</li>";
   }
-  mdHtml += "</ul></nav>";
+  html += "</ul></nav>";
 
-  return mdHtml;
+  return html;
 };
