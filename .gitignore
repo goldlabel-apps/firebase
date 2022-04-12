@@ -1,5 +1,7 @@
-src/service_account.json
-src/serviceAccountKey.ts
+# Milky's Assets 
+
+_ASSETS 
+service_account.json
 dist
 
 # Compiled JavaScript files
